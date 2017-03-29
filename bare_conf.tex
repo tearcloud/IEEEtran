@@ -116,7 +116,7 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+   \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -352,19 +352,20 @@
 % for over three affiliations, or if they all won't fit within the width
 % of the page, use this alternative format:
 % 
-\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+\author{\IEEEauthorblockN{
 Ebelechukwu Nwafor \IEEEauthorrefmark{1},
 Gedare Bloom\IEEEauthorrefmark{1}, 
 Andre Campbell\IEEEauthorrefmark{1} and
 David Hill\IEEEauthorrefmark{1}}
 \IEEEauthorblockA{\IEEEauthorrefmark{1}Department of Electrical Engineering and Computer Science\\
 Howard University,
-Washington, DC 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
-\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
-Email: homer@thesimpsons.com}
-\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
-Telephone: (800) 555--1212, Fax: (888) 555--1212}
-\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+Washington, DC 30332--0250\\ Email: ebelechukwu.nwafor@bison.howard.edu}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}
+}
 
 
 
@@ -426,7 +427,7 @@ of our framework by looking at an application of provenance data by developing a
 
 \section{Introduction}
 % no \IEEEPARstart
-The Internet of Things (IoT) has generated a lot of buzz among commercial and industrial information technology experts all over the world.  Heterogeneous devices like we have never seen before are communicating with each other over a shared network (e.g internet). For example, It is possible to automatically control the temperature of a house remotely though a cell phone. With this unprecedented communication, here has been an exponential increase in the number of devices connected to the internet. It is estimated that over 50 million devices will be connected to the internet by the year 2020. With the vast amounts of connected heterogeneous devices, security and privacy risks is increased. IoT devices are not strongly incorporated with security in mind. This raises the complexity of including security after the device has been deployed. For instance some devices come with default passwords which might never be changed during its lifecycle. There is a  strong need to provide integrity to data produced IoT devices. One of the ways of achieving this is through which can be addressed through data provenance. Data provenance is a comprehensive history of activities that occurred on an entity from its origin to its current state. Provenance ensures integrity of data . Provenance has been applied in various area such as scientific workflow for experiment reproducibility, and information security as a form of access control and also for intrusion detection in mitigating malicious adversaries.  Provenance ensure trust and integrity of data. IoT devices (things) produces sensor-actutor data. A workflow representation of of how sensor data is generated can be generated to depict dependency between sensor-actuator readings and devices/sensor information contained in the device. \par This information generated can be prove to be beneficial as a means for mitigating malicious intrusion or for scientific reproducability as provenance. In this paper, we propose a provenance aware framework for IoT devices, in which provenance data is collected and modelled to represent dependencies between sensor-actuator readings and the various entities contained in the IoT architecture. The remainging sections of is divided as follows: section 2 discusses background information on IoT definition, architecture ,application domain and data provenance. Section 3 discusses the need for a provenance framework using a use case scenario of an automated smart home. Section 3 talks about related work in provenance collection systems. Section 4 discusses implementation details for provenance collection framework. Section 5 talks about results and experiment analysis. Finally, in section 6 we conclude with future work.
+The Internet of Things (IoT) has generated a lot of buzz among commercial and industrial information technology experts all over the world.  Heterogeneous devices like we have never seen before are communicating with each other over a shared network (e.g internet). For example, It is possible to automatically control the temperature of a house remotely though a cell phone. With this unprecedented communication, here has been an exponential increase in the number of devices connected to the internet. It is estimated that over 50 million devices will be connected to the internet by the year 2020. With the vast amounts of connected heterogeneous devices, security and privacy risks is increased. IoT devices are not strongly incorporated with security in mind. This raises the complexity of including security after the device has been deployed. For instance some devices come with default passwords which might never be changed during its lifecycle. There is a  strong need to provide integrity to data produced IoT devices. One of the ways of achieving this is through which can be addressed through data provenance. Data provenance is a comprehensive history of activities that occurred on an entity from its origin to its current state. Provenance ensures integrity of data . Provenance has been applied in various area such as scientific workflow for experiment reproducibility, and information security as a form of access control and also for intrusion detection in mitigating malicious adversaries.  Provenance ensure trust and integrity of data. IoT devices (things) produces sensor-actuator data. A workflow representation of of how sensor data is generated can be generated to depict dependency between sensor-actuator readings and devices/sensor information contained in the device. \par This information generated can be prove to be beneficial as a means for mitigating malicious intrusion or for scientific reproducability as provenance. In this paper, we propose a provenance aware framework for IoT devices, in which provenance data is collected and modeled to represent dependencies between sensor-actuator readings and the various entities contained in the IoT architecture. The remaining sections of is divided as follows: section 2 discusses background information on IoT definition, architecture ,application domain and data provenance. Section 3 discusses the need for a provenance framework using a use case scenario of an automated smart home. Section 3 talks about related work in provenance collection systems. Section 4 discusses implementation details for provenance collection framework. Section 5 talks about results and experiment analysis. Finally, in section 6 we conclude with future work.
 
 
 \section{Background} 
@@ -438,8 +439,10 @@ of connected \"things\". The concept of IoT was proposed by Mark Weiser in the e
  which represents a way in which the physical objects, \" things\", can be connected to the
 digital world. Gubbi et al defines the IoT as an interconnection of sensing and actuating
 devices that allows data sharing across platforms through a centralized framework. We
-define (IoT) as follows:
+define (IoT) as follows:  The Internet of Things (IoT) is a network of heterogeneous devices with sensing and actuating capabilities communicating over the internet.
 
+%\newtheorem{definition}{Definition}
+%
 %\begin{definition}
 %
 %The Internet of Things (IoT) is a network of heterogeneous devices with
@@ -466,22 +469,38 @@ device later. It could also serve as a medium of temporary storage and data proc
 The cloud layer is involved with the storage and processing of data collected from the
 gateway layer. Note that the resource constraints decreases up the architectural stack with
 the cloud layer having the most resources (memory, power computation) and the sensor-
-actuator layer having the least.
+actuator layer having the least. 
+
+IoT has applications in home automation, smart health, vehicle to vehicle communication, machine to machine comminication to name just a few
 
 
-%\begin{figure}[h]
-%\begin{center}
-%
-%\includegraphics[height=2.0in]{iot_architecture.png}
-%\end{center}
-%\caption{IoT Architecture Diagram. The arrows illustrates the interaction between data at various layers on the architecture.}
-%\label{iot_architecture}
-%
-%\end{figure}
+\begin{figure}[h]
+\begin{center}
+
+\includegraphics[height=2.0in]{iot_architecture.png}
+\end{center}
+\caption{IoT Architecture Diagram. The arrows illustrates the interaction between data at various layers on the architecture.}
+\label{iot_architecture}
+
+\end{figure}
 
 With the recent data explosion [22] due to the large influx  in amounts of interconnected devices, information is disseminated at a fast rate and with this increase involves security and privacy concerns. Creating a provenance-aware system is beneficial to IoT because it
-ensures the trust and integrity of interconnected devices. Enabling provenance collection in IoT devices allows these devices to capture valuable information which enables backtracking
-in an event of a malicious attack. 
+ensures the trust and integrity of interconnected devices. Enabling provenance collection in IoT devices allows these devices to capture valuable information which enables backtracking in an event of a malicious attack. 
+
+
+\subsection{Provenance-Aware IoT Device Use Case}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[height=2.5in]{smart_home.png}
+\end{center}
+\caption{Smart home use case Diagram}
+\label{smart_home}
+\end{figure}
+
+
+
+Consider a smart home as illustrated in Figure \ref{smart_home} that contains interconnected devices such as a thermostat which automatically detects and regulates the temperature of a room based on prior information of a user's temperature preferences, a smart lock system that can be controlled remotely and informs a user via short messaging when the door has been opened or is closed, a home security camera monitoring system, a smart fridge which sends a reminder when food products are low. In an event that a malicious intruder attempts  to gain access to the smart lock system and security camera remotely, provenance information can be used to track the series  of events to determine where and how a malicious attack originated. Provenance can also be used as a safeguard to alert of a possible remote or insider compromise thereby protecting against future or ongoing malicious attacks. 
 
 
 
@@ -489,15 +508,17 @@ in an event of a malicious attack.
 
 The Oxford English dictionary defines provenance as the place of origin or earliest
 known history of something". An example of provenance can be seen with a college transcript. A transcript is the provenance of a college degree because it outlines all of the
-courses satisfied in order to attain the degree. In the field of computing, data provenance, also known as data lineage, can be defined
-as the history of all activities performed on entities from its creation to its current state.
-Cheney et al.  decribes provenance as the origin and history of data from its lifecycle. Buneman et al describes provenance from a database perspective as the origin of data and the steps in which it is derived in the database system. We formally define provenance as follows: 
+courses satisfied in order to attain the degree. In the field of computing, data provenance, also known as data lineage, can be defined as the history of all activities performed on entities from its creation to its current state.
+Cheney et al.  decribes provenance as the origin and history of data from its lifecycle. Buneman et al describes provenance from a database perspective as the origin of data and the steps in which it is derived in the database system. We formally define provenance as follows:  Data provenance of an entity is a comprehensive history of activities that occur on that entity from its creation to its present state.
 
 %\begin{definition}
 %Data provenance of an entity is a comprehensive history of activities that occur on that entity from its creation to its present state.
 %\end{definition}
 
-\par Provenance ensures trust and integrity of data \cite{Bertino2015}. It outlines causality and dependency between all objects involved in the system and allows for the verification of the source of data. Causality and dependency are used to determine the relationship between multiple objects. The relationship in which provenance denotes can in turn be used in digital forensics \cite{zawoadfecloud} to investigate the cause of a malicious attack and also in intrusion detection systems to further enhance the security of computing devices. 
+\par Provenance ensures trust and integrity of data \cite{Bertino2015}. It outlines dependency between all objects involved in the system and allows for the verification of the source of data. dependency is used to determine the relationship between multiple objects. The relationship in which provenance denotes can in turn be used in digital forensics \cite{zawoadfecloud} to investigate the cause of a malicious attack and also in intrusion detection systems to further enhance the security of computing devices. 
+
+
+Provenance has been utilized in application domains such as computer security for access control and intrusion detection, in scientific experiments for reproducability  and in version control systems to mention but a few. 
  
  \subsection{Provenance Characteristics}
 
@@ -517,7 +538,65 @@ Since provenance denotes the who, where and why of data transformation, it is im
 \end{itemize}
 
 
+\subsection{Model for representing provenance for IoT}
 
+In order to represent the right kind of provenance information, we need to satisfy the who, where, how, and what of data transformations. Provenance data can be represented using a provenance model in a modeling language such as, PROV\-DM which is represented in serialized form as a JSON object. This model displays the causal relationship of data objects. We propose a model that contains information such as sensor readings, device name, and device information. There are two widely accepted modeling languages for representing provenance, PROV-DM \cite{prov_dm} and  Open Provenance Model \cite{moreau_open_2011} that have been applied in various literature and are considered standard for representing provenance. Details on the provenance models are outlined below.
+
+\subsection{Provenance Data Model (Prov-DM)}
+
+PROV-DM is a W3C standardized extension of OPM. Prov-DM is a model that is used to depict causal relationships between entities, activities and agents (digital or physical). It creates a common model that allows for interchange of provenance information between heterogeneous devices. It contains two major components: types and relations. 
+
+
+\begin{itemize}
+
+\item Entity: An entity is a physical or digital object. An example of an entity is a file system, a process, or an motor vehicle. An entity may be physical or abstract.
+
+\item Activity: An activity represents some form of action that occurs over a time frame. Actions are acted upon by an agent. An example of an activity is a process opening a file directory, Accessing a remote server.
+
+\item Agent: An agent is a thing that takes ownership of an entity, or performs an activity. An example of an agent is a person, a software product, or a process.
+\end{itemize}
+
+The figure below illustrates the various types contained in PROV-DM and their representation. Entities, activities and agents are represented by oval, rectangle and hexagonal shapes respectively.
+
+\begin{figure}[h]
+\begin{center}
+
+\includegraphics[width=3.0in]{prov_dm.PNG}
+\end{center}
+\caption{Prov-DM respresentation showing various types contained in the model (Entity, Activity, and Agent) }
+\end{figure}
+
+Similar to the OPM, PROV-DM does not keep track of future events. PROV-DM relations are outlined below:
+
+
+\begin{itemize}
+\item wasGeneratedBy: This relation signifies the creation of an entity by an activity. 
+
+\item used: This relation denotes that the functionality of an entity has been adopted by an activity.
+
+\item wasInformedBy: This relation denotes a causality that follows the exchange of two activities.
+
+\item wasDerivedFrom: This relation represents a copy of information from an entity. 
+
+\item wasAttributedTo: This denotes relational dependency to an agent. It is used to denote relationship between entity and agent when the activity that created the agent is unknown.
+
+\item wasAssociatedWith: This relation denotes a direct association to an agent for an activity that occurs. This indicates that an agent plays a role in the creation or modification of the activity.
+
+\item actedOnBehalfOf: This relation denotes assigning authority to perform a particular responsibility to an agent. This could be by itself or to another agent.
+
+
+
+\end{itemize}
+
+Some of the difference between OPM and PROV-DM are described below:
+
+\begin{itemize}
+
+\item The main components Artifact, Process and Agent in the OPM model are modified to Entity, Action, and Agent. 
+
+\item Additional causal dependencies such as wasAttributedTo and actedOnBehalfOf were included to represent direct and indirect causal dependencies respectively between agents and entities.
+
+\end{itemize}
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -650,16 +729,17 @@ The authors would like to thank...
 % http://mirror.ctan.org/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+%\bibliographystyle{plain}
 % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
+%\bibliography{refrences}
 %
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
+
 \begin{thebibliography}{1}
 
-\bibitem{IEEEhowto:kopka}
+\bibitem{IEEEhowto}
 H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
   0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
 
