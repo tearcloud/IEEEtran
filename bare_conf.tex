@@ -113,6 +113,15 @@
 
 
 
+%footnote package
+
+\usepackage{footnote}
+
+\usepackage[vlined,ruled]{algorithm2e}
+
+
+
+
 
 
 % *** GRAPHICS RELATED PACKAGES ***
@@ -161,7 +170,7 @@
 
 % *** MATH PACKAGES ***
 %
-%\usepackage{amsmath}
+\usepackage{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics.
 %
@@ -356,12 +365,12 @@
 % 
 \author{\IEEEauthorblockN{
 Ebelechukwu Nwafor \IEEEauthorrefmark{1},
-Gedare Bloom\IEEEauthorrefmark{1}, 
+David Hill\IEEEauthorrefmark{1}, 
 Andre Campbell\IEEEauthorrefmark{1} and
-David Hill\IEEEauthorrefmark{1}}
+Gedare Bloom\IEEEauthorrefmark{1}}
 \IEEEauthorblockA{\IEEEauthorrefmark{1}Department of Electrical Engineering and Computer Science\\
 Howard University,
-Washington, DC 30332--0250\\ Email: ebelechukwu.nwafor@bison.howard.edu}
+Washington, DC 20059\\ Email: ebelechukwu.nwafor@bison.howard.edu}
 %\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
 %Email: homer@thesimpsons.com}
 %\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
@@ -396,7 +405,7 @@ Washington, DC 30332--0250\\ Email: ebelechukwu.nwafor@bison.howard.edu}
 % in the abstract
 \begin{abstract}
 The Internet of Things (IoT) offers immense benefits by enabling devices
-to leverage networked resources theryby making intelligent decisions. The
+to leverage networked resources thereby making intelligent decisions. The
 numerous heterogeneous connected devices that exist throughout the IoT
 system creates new security and privacy concerns. Some of these concerns
 can be overcome through trust, transparency, and integrity, which can be
@@ -429,9 +438,9 @@ of our framework by looking at an application of provenance data by developing a
 
 \section{Introduction}
 % no \IEEEPARstart
-The Internet of Things (IoT) has generated a lot of buzz among commercial and industrial information technology experts all over the world.  Heterogeneous devices like we have never seen before are communicating with each other over a shared network (e.g internet). For example, It is possible to automatically control the temperature of a house remotely though a cell phone. 
+The Internet of Things (IoT) is transforming commercial and industrial information technology all over the world.  Heterogeneous devices are communicating with each other over a shared network (e.g internet). For example, you can automatically control the temperature of a house remotely though the use of a cell phone. 
 
-IoT offers immense benefits in the areas of home, industrial and vehichle automation by making operations which might require lots of interaction seamless and also preventing accidents which might be due to human error. However, with this unprecedented level of devices (things) communicating in the IoT, there has been an exponential increase in the number of devices connected to the internet. It is estimated that over 50 million devices will be connected to the internet by the year 2020. With the vast amounts of connected heterogeneous devices, security and privacy risks is increased. Rapid7 \cite{rapid7}, an  internet security and analytics organization, released a report highlighting vulnerabilities that exist on select IoT devices. In their report, they outline  vulnerabilities in baby monitors which allowed intruders unauthorized access to devices whereby a malicious intruder can view live feeds from a remote location. 
+IoT offers immense benefits in the areas of home, industrial and vehicle automation by making operations which might require lots of interaction seamless and also preventing accidents which might be due to human error. However, with this unprecedented level of devices (things) communicating in the IoT, there has been an exponential increase in the number of devices connected to the internet. It is estimated that over 50 million devices will be connected to the internet by the year 2020. With the vast amounts of connected heterogeneous devices, security and privacy risks is increased. Rapid7 \cite{rapid7}, an  internet security and analytics organization, released a report highlighting vulnerabilities that exist on select IoT devices. In their report, they outline  vulnerabilities in baby monitors which allowed intruders unauthorized access to devices whereby a malicious intruder can view live feeds from a remote location. 
 
 \par Most IoT devices are not initially developed with security in mind. This raises the complexity of including security after the device has been deployed. For instance some devices come with default passwords which might never be changed during its lifecycle.  The amount of data generated from IoT
 devices requires stronger levels of trust which can be achieved through data
@@ -447,10 +456,10 @@ devices.
 This section describes key concepts of data provenance, IoT characteristics, and provenance models. It also provides motivating example for the need for provenance collection via a use case.
 
 \subsection{Internet of Things}
-There is no standard definition for IoT, however, researchers have tried to define the concept
-of connected \"things\". The concept of IoT was proposed by Mark Weiser in the early 1990s
- which represents a way in which the physical objects, \" things\", can be connected to the
-digital world. Gubbi et al defines the IoT as an interconnection of sensing and actuating
+ There is no standard definition of IoT. The notion of connected things is broad and encompasses several application domain making it hard to define however, researchers have tried to defined the IoT over the years.
+
+
+In 1991, Mark Weiser \cite{weiser1991}, a pioneer of ubiquitous computing envisioned the notion of computing interleaved in our daily lives. Kevin Ashton \cite{ashton2009internet}, an early pioneer of IoT, in his presentation to Proctor \& Gamble in on an idea of linking RFID in P\&G's supply chain to the internet, defines the internet of things as devices in our everyday lives which can be identified connected to a network. These devices can learn from information gathered autonomously without human input which allows for improvements in waste reduction and overall standard of living. Buckley et al \cite{yan2008internet} defines the internet of things as a network of billions of machines communicating with each other. Gubbi et al \cite{gubbi_internet_2013} defines the IoT as an interconnection of sensing and actuating
 devices that allows data sharing across platforms through a centralized framework. We
 define (IoT) as follows:  
 
@@ -520,33 +529,29 @@ Consider a smart home as illustrated in Figure \ref{smart_home} that contains in
 
 \subsection{Data Provenance}
 
-The Oxford English dictionary defines provenance as the place of origin or earliest
+The Oxford English dictionary \cite{TCDP1999} defines provenance as "the place of origin or earliest
 known history of something". An example of provenance can be seen with a college transcript. A transcript is the provenance of a college degree because it outlines all of the
 courses satisfied in order to attain the degree. In the field of computing, data provenance, also known as data lineage, can be defined as the history of all activities performed on entities from its creation to its current state.
-Cheney et al.  describes provenance as the origin and history of data from its lifecycle. Buneman et al describes provenance from a database perspective as the origin of data and the steps in which it is derived in the database system. We formally define provenance as follows:  Data provenance of an entity is a comprehensive history of activities that occur on that entity from its creation to its present state.
+Cheney et al \cite{cheney_provenance_2009}  describes provenance as the origin and history of data from its lifecycle. Buneman et al \cite{buneman_why_2001} describes provenance from a database perspective as the origin of data and the steps in which it is derived in the database system. We formally define provenance as follows:  Data provenance of an entity is a comprehensive history of activities that occur on that entity from its creation to its present state.
 
 %\begin{definition}
 %Data provenance of an entity is a comprehensive history of activities that occur on that entity from its creation to its present state.
 %\end{definition}
 
-Provenance involves two granularity levels: fine-grained provenance and coarse-grained provenance. Fine-grained provenance \cite{glavic_case_2011} entails the collection of a detailed level of provenance. Coarse grained provenance, on the other hand, is a collection of a summarized version of provenance. Data provenance has immense applications and has been explored in the areas of scientific computing \cite{groth, altintas} to track how an experiments are produced, in business to determine the work-flow of  a process, and in computer security for forensic analysis and intrusion detection \cite{bates_towards_2013, muniswamy_reddy_provenance_2010, muniswamy_reddy} . Provenance denotes the who, where and why of data \cite{cheney_provenance_2009}. An example of provenance for a software system is a web server's log file. This file contains metadata for various request and response time and the ip address of all host systems that requests information from the server. This log file identifies the data object (i.e. Web server), transformations that occurs on this object (e.g read write connections) and the state of the data object. Provenance data is represented as an acyclic graph which denotes casual relationship and dependencies between entities. 
+Provenance data is represented as an acyclic graph which denotes causal relationship and dependencies between entities. 
 
-\par Provenance ensures trust and integrity of data \cite{Bertino2015}. It outlines dependency between all objects involved in the system and allows for the verification of the source of data. dependency is used to determine the relationship between multiple objects. The relationship in which provenance denotes can in turn be used in digital forensics \cite{zawoadfecloud} to investigate the cause of a malicious attack and also in intrusion detection systems to further enhance the security of computing devices. Provenance has been utilized in application domains such as computer security for access control and intrusion detection, in scientific experiments for reproducability  and in version control systems to mention but a few. 
  
  \subsubsection{Provenance Characteristics}
 
-Since provenance denotes the who, where and why of data transformation, it is imperative that data disseminated in an IoT architecture satisfies the required conditions. The characteristics of data provenance are outlined in detail below.
-
-
 \begin{itemize}
 
-\item Who: This characteristic provides information on activities made to an entity. Knowing the ``who" characteristic is essential because it maps the identity of modification to a particular data object. An example of ``who" in an IoT use case is a sensor device identifier.
+\item Who: Provides information on activities made to an entity. Knowing the ``who" characteristic is essential because it maps the identity of modification to a particular data object. An example of ``who" in an IoT use case is a sensor device identifier.
 
-\item Where: This characteristic denotes location information in which data transformation was made. This provenance characteristic could be optional since not every data modification contains location details.
+\item Where: Location information at which data transformation was made. This provenance characteristic could be optional since not every data modification contains location details. An example is a GPS coordinate.
 
-\item When: This characteristic denotes the time information at which data transformation occurred. This is an essential provenance characteristic. Being able to tell the time of a data transformation allows for tracing data irregularities.
+\item When: The time at which data transformation occurred. This is an essential provenance characteristic. Being able to tell the time of a data transformation allows for tracing data irregularities. An example of this characteristic is a timestamp that denotes when sensor data was read.
 
-\item What: This characteristic denotes the transformation is applied on a data object. A use case for IoT can be seen in the various operations (create, read, update, and delete) that could be performed on a file object.
+\item What: The transformation is applied on a data object. A use case for IoT can be seen in the various operations (create, read, update, and delete) that could be performed on a data object.
 
 \end{itemize}
 
@@ -557,18 +562,17 @@ Provenance has often been seen used interchangably to define log data, and metad
 
 \subsection{Model for representing provenance for IoT}
 
-In order to represent the right kind of provenance information in an IoT architecture, we need to satisfy the who, where, how, and what of data transformations. The provenance of sensor and actuator data in an IoT device showing the depency between all entities responsible for generating the sensor reading. 
-
-
-
-Provenance data can be represented using a provenance model in a modeling language such as, PROV-DM which is represented in serialized in three format:  XML, JSON and RDF. This model displays data dependency between agents and entities. We propose a model that contains information such as sensor readings, device name, and device information. Details on the provenance data model.
+In order to represent provenance in an IoT architecture, we need to satisfy provenance characteristics (i.e who, where, when, and what of data transformations). 
+\par Provenance of sensor and actuator readings in an IoT device should outline the dependency relationship between all entities responsible for producing such readings . Provenance can be represented using a modeling language with ontological representations such as PROV-DM which is represented serialized in three format:  XML, JSON and RDF. This model displays data dependency between agents and entities. We propose an alignment to the PROV-DM which contains information such as sensor readings, device name, and device information and give a detailed description of the alignment with use cases. Details on the provenance-sensor data model alignment is discussed in section IV.
 
 \subsubsection{Provenance Data Model (Prov-DM)}
 
-PROV-DM is a model that conforms to PROV Ontology, a W3C standard that is used to depict dependencies between entities, activities and agents (digital or physical). It creates a common model that allows for interchange of provenance information between heterogeneous devices. PROV is a predecessor of the Open Provenance model (OPM),  a result of a meeting at the International Provenance and Annotation Workshop (IPAW) 2006.  OPM was created to address the need of allowing a centralized model for representing provenance data amongst various applications. PROV-DM contains two major components: types and relations. 
+PROV-DM \cite{prov_dm} is a model that conforms to PROV Ontology (PROV-O), a W3C standard that is used to depict dependencies between entities, activities and agents (digital or physical). It creates a common model that allows for interchange of provenance information between heterogeneous devices. PROV-DM is a predecessor of the Open Provenance model (OPM),  a result of a meeting at the International Provenance and Annotation Workshop (IPAW) 2006.  OPM was created to address the need of allowing a centralized model for representing provenance data amongst various applications. PROV-DM contains two major components: types and relations. 
 
 
+Types:
 \begin{itemize}
+
 
 \item Entity: An entity is a physical or digital object. An example of an entity is a file system, a process, or an motor vehicle. An entity may be physical or abstract.
 
@@ -587,23 +591,23 @@ The figure below illustrates the various types contained in PROV-DM and their re
 \caption{Prov-DM respresentation showing various types contained in the model (Entity, Activity, and Agent) }
 \end{figure}
 
-PROV-DM does not keep track of future events. PROV-DM relations are outlined below:
 
+Relations:
 
 \begin{itemize}
-\item wasGeneratedBy: This relation signifies the creation of an entity by an activity. 
+\item wasGeneratedBy: Signifies the creation of an entity by an activity. 
 
-\item used: This relation denotes that the functionality of an entity has been adopted by an activity.
+\item used: Denotes that the functionality of an entity has been adopted by an activity.
 
-\item wasInformedBy: This relation denotes a causality that follows the exchange of two activities.
+\item wasInformedBy: Denotes a causality that follows the exchange of two activities.
 
-\item wasDerivedFrom: This relation represents a copy of information from an entity. 
+\item wasDerivedFrom: Represents a copy of information from an entity. 
 
-\item wasAttributedTo: This denotes relational dependency to an agent. It is used to denote relationship between entity and agent when the activity that created the agent is unknown.
+\item wasAttributedTo: Denotes relational dependency between an entity and an agent when the activity that created the agent is unknown.
 
-\item wasAssociatedWith: This relation denotes a direct association to an agent for an activity that occurs. This indicates that an agent plays a role in the creation or modification of the activity.
+\item wasAssociatedWith: Denotes a direct association to an agent for an activity that occurs. This indicates that an agent plays a role in the creation or modification of the activity.
 
-\item actedOnBehalfOf: This relation denotes assigning authority to perform a particular responsibility to an agent. This could be by itself or to another agent.
+\item actedOnBehalfOf: Denotes assigning authority to perform a particular responsibility to an agent. 
 
 
 
@@ -737,7 +741,7 @@ Bates et al \cite{bates_towards_2013} provide a security model for provenance co
 Spillance et al \cite{story} developed a user space provenance collection system, Storybook, which allows for the collection of provenance data from the user space thereby reducing performance overhead. This system takes a modular approach that allows the use of application specific extensions allowing additions such as database provenance, system provenance, and web and email servers. It achieves provenance capture intercepting system level events on FUSE, a file system and MySQL , a relational database. StoryBook allows developers to implement provenance inspectors these are custom provenance models which captures the provenance of specific applications which are often modified by different application(e.g web servers, databases). When an operation is performed on a data object, the appropriate provenance model is triggered and provenance data for that data object is captured. StoryBook stores provenance information such as open, close, read or write, application specific provenance, and causality relationship between entities contained in the provenance system. Provenance data is stored in key value pairs using Stasis and Berkely DB as the storage backend. It also allows the use of interoperable data specifications such as RDF to transfer data between various applications. Storybook allows for provenance query by looking up an inode in the ino hashtable. Collecting application level and kernel level events is similar to our approach of provenance collection, however, our approach integrates the use of a policy to eliminate noisy provenance data thereby allowing only relevant provenance to be stored.
 
 \subsection{Backtracking Intrusions}
-Samuel et al \cite{King:2003:BI:945445.945467} developed a system, Backtracker, which generates an information flow of OS objects (e.g file, process) and events (e.g system call) in a computer system for the purpose of intrusion detection. From a detection point, information can be traced to pinpoint where a malicious attack occurred. The information flow represents a dependency graph which illustrates the relationship between system events. Detection point is a point in which an intrusion was discovered. Time is included in the dependency between objects to reduce false dependencies. Time is denoted by an increasing counter. The time is recorded as the difference of when a system call is invoked till when it ends. Backtracker is composed of two major components: EventLogger and GraphGen. An EventLogger is responsible for generating system level event log for applications running on the system. EventLogger is implemented in two ways: using a virtual machine and also as a stand alone system. In a virtual machine, the application and OS is run within a virtual machine. The OS running inside of the virtual machine is known as the guest OS while the OS on the bare-metal machine is known as the host OS, hypervisor or virtual machine monitor. The virtual machine alerts the EventLogger in the event that an application makes a system call and or exits. EventLogger gets event information, object identities, dependency relationship between events from the virtual machine's monitor and also the virtual machine's physical memory. EventLogger stores the collected information as a compressed file. EventLogger can also be implemented as a stand alone system which is incorporated in an operating system. Virtual machine is preferred to a standalone system because of the use of virtual machine allows ReVirt to be leveraged. ReVirt enables the replay of instruction by instruction execution of virtual machines. This allows for whole information capture of workloads. After the information has been captured by the EventLogger, GraphGen is used to produce visualizations that outlines the dependencies between events and objects contained in the system. GraphGen also allows for pruning of data using regular expressions which are used to filter the dependency graph and prioritize important portions of the dependency graph.
+King et al \cite{King:2003:BI:945445.945467} developed a system, Backtracker, which generates an information flow of OS objects (e.g file, process) and events (e.g system call) in a computer system for the purpose of intrusion detection. From a detection point, information can be traced to pinpoint where a malicious attack occurred. The information flow represents a dependency graph which illustrates the relationship between system events. Detection point is a point in which an intrusion was discovered. Time is included in the dependency between objects to reduce false dependencies. Time is denoted by an increasing counter. The time is recorded as the difference of when a system call is invoked till when it ends. Backtracker is composed of two major components: EventLogger and GraphGen. An EventLogger is responsible for generating system level event log for applications running on the system. EventLogger is implemented in two ways: using a virtual machine and also as a stand alone system. In a virtual machine, the application and OS is run within a virtual machine. The OS running inside of the virtual machine is known as the guest OS while the OS on the bare-metal machine is known as the host OS, hypervisor or virtual machine monitor. The virtual machine alerts the EventLogger in the event that an application makes a system call and or exits. EventLogger gets event information, object identities, dependency relationship between events from the virtual machine's monitor and also the virtual machine's physical memory. EventLogger stores the collected information as a compressed file. EventLogger can also be implemented as a stand alone system which is incorporated in an operating system. Virtual machine is preferred to a standalone system because of the use of virtual machine allows ReVirt to be leveraged. ReVirt enables the replay of instruction by instruction execution of virtual machines. This allows for whole information capture of workloads. After the information has been captured by the EventLogger, GraphGen is used to produce visualizations that outlines the dependencies between events and objects contained in the system. GraphGen also allows for pruning of data using regular expressions which are used to filter the dependency graph and prioritize important portions of the dependency graph.
 
 
 \subsection{Provenance Recording for Services}
@@ -771,7 +775,7 @@ Goshal et al \cite{ghoshal_provenance_2013} developed a framework for collecting
 \subsection{Towards a Universal Data Provenance Framework using Dynamic Instrumentation}
 Gessiou et al \cite{gessiou_towards_2012} propose a dynamic instrumentation framework for data provenance collection that is universal and does not incur the overhead of kernel or source code modifications. This is achieved by using DTrace, a dynamic instrumentation utility that allows for the instrumentation of user-level and kernel-level code and with no overhead cost when disabled. 
 
-The goal is to provide an easy extension to add provenance collection on any application regardless of its size or complexity. Provenance collection is implemented on the file system using PASS and evaluated on a database(SQLite) and a web browser(Safari). 
+The goal is to provide an easy extension to add provenance collection on any application regardless of its size or complexity. Provenance collection is implemented on the file system using PASS and evaluated on a database (SQLite) and a web browser (Safari). 
 The logging component monitors all system calls for processes involved. The logging component contains information such as system-call arguments, return value, user id, process name,and timestamp. The logging components includes functionalities to collect library and functional calls. The authors argue that applying data provenance to different layers of the software stack can provide varying levels of information. Provenance needs to be captured at the layer in which it is closest to the information that is needed to be captured. Provenance information that pertains to complex system activities such as a web browser or a database are collected. The information is collected from a process system-call and functional-call based on valid entry points contained in the process. DTrace dynamic instrumentation helps in discovering interesting paths in a system in which data propagates. This helps users use this information to collect a more accurate provenance data.
 
 \subsection{Provenance-Based Trustworthiness Assessment in Sensor Networks}
@@ -786,34 +790,98 @@ provenance aware system for sensor-actuator I/O operations which may be used to 
 connected devices. 
 
 \section {Prov-Sensor Model Alignment}
-Sensor data contains observation data such as temperature, location information which could be represented in various standardized data interchange formats (RDF, XML, JSON e.t.c). For our implementation, sensor data is generated in CTF format. Further information on CTF is described in section 3. Trace data containing sensor-actuator readings are important component but they do not depict dependency relationships. PROV-O and sensor data can be aligned for better representation of dependencies between sensor data.
+In this section, we describe the sensor-provenance model alignment, we discuss how sensor and actuator readings are converted to provenance representations using provenance ontological constructs.
 
-\par Using the PROV-O, In an IoT  device connected to multiple sensors, the device and the sensors are represented as agents (prov:agents), the operation performed on the data (read, create, update) is represents an activity (prov:activity). Data being generated is known as an entity (prov:entity). Sensor readings generated from IoT devices are represented as a tuple $<t, d, s_1, r_1>$ where $t$ represents a timestamp, $d$ represents data which is being collected, $s_1$ represents sensor information and $r_1$ represents device information. $d$ can further be expanded as a list of data points. For example, consider sensor $s_1$,  which generates sensor and humidity readings connected to device $r_1$, a raspberry pi, $d$ can be defined as $d= [temperature, humidity]$ therefore the tuple representation of trace data for the raspberry pi $r_1$ with sensor $s_1$ is represented as $<t, [temperature, humidity], s_1, r_1>$. Figure \ref{prov_sensor} further illustrates this concept with a graphical representation of the provenance-sensor alignment for a device connected to three sensors $s_1, s_2, and s_3$ with data \{$d_1,...,d_4, e1, e2, f_1,...,f_4$\}. Data is generated by three identical sensors, $s_1, s_2$ and $s_3$. All sensors generates data in real time. Trace generated from devices aligned with PROV-O which are represented as a graph. The graph depicts the dependency between the raspberry pi, $r_1$, the three sensors, the activity performed by the sensors (the sensors create data in this case) and the data generated.  The dotted arrows represents time dependency between various entities.
+\par Sensor data contains observation information such as temperature, location details which can be represented in various standardized data interchange formats (RDF, XML, JSON e.t.c). For our implementation, sensor data is generated in CTF format. Further information on CTF is described in section V. Trace data containing sensor-actuator readings are important components but do not depict dependency relationship when used alone. Trace data is transformed to provenance to depict relationship between entities contained in an IoT system. Provenance Ontology and sensor data can be aligned for better representation of dependencies between sensor data.
 
+\par A single sensor has the capability of collecting multiple trace data. A combination of these types is regraded as an event. An example of events are temperature, location, humidity information e.t.c. We define an event  for sensor $s_1$ as $e= \{td_1, ...td_n\} $ where $td$ is the first trace data collected by $s_1$  and $td_n$ is the last trace data contained collected by the sensor. \\ $[sensor, actuator, device] \in \{prov:agent\}$  \\ $[datapoint] \in \{prov:entity\} $
+
+\par Using the PROV-O, in an IoT system containing multiple sensors, device and sensors information are represented as agents (prov:agents), the operation performed on sensor-actuator data (read, create, update) represents provenance activity (prov:activity). Events are represented as an entities (prov:entity). Each Sensor-actuator data generated is represented as a tuple  $x = <t, e, s_1, r_1>$ where $t$ represents a timestamp, $e$ represents events in which trace data is collected, $s_1$ represents sensor information and $r_1$ represents device information. 
+
+
+\subsubsection{Example} 
+
+Consider a humidity and temperature sensor $s_1$, connected to device $r_1$, a raspberry pi. Event, $e$, can be defined as $e= \{temperature, humidity\}$ therefore the tuple representation of trace data for raspberry pi $r_1$ with sensor $s_1$ is represented as $<t, \{temperature, humidity\}, s_1, r_1>$. Each trace data generated is mapped to the PROV-O representation using the defined constructs specified above. Figure \ref{prov_sensor} further illustrates this concept of Prov-Sensor alignment using a graphical representation which contains a device connected to three sensors $s_1, s_2, and s_3$ and events generated  [$e_1, e_2,...,e_n$]. 
+
+
+Data is generated by three identical temperature sensors, $s_1, s_2$ and $s_3$. All sensors generate data in real-time. Trace data generated from devices are aligned with PROV-O. The graph depicts data dependency between the raspberry pi, $r_1$, the three sensors, the activity performed by the sensors (the sensors create data in this case) and the events.  Each event makes an edge with the preceding event. Edges between events are denoted with a dotted arrow . This represents time dependency between events.  We define the graph of all of the events as follows: \\ For graph  G= (V, E):   \\ $V = \{ e_1, ...e_n \} \\  E = \{ (e_i,e_{i+1}): e_i, e_{i+1} \in V, e_1 \neq e_{i+1}\}  $
+   
+ 
 
 \begin{figure}[h!]
 \begin{center}
 
-\includegraphics[width=3.5in]{prov_sensor1.PNG}
+\includegraphics[width=3.8in]{prov_sensor1.PNG}
 \end{center}
 \caption{Prov-Sensor Model Alignment }
 \label{prov_sensor}
 \end{figure}
 
-\subsection{ALGORITHM}
-
-TODO...
+\SetKwProg{Fn}{Function}{}{}
 
 
+\begin{algorithm}[h!]
+\caption{Prov-Sensor Alignment}
+\Fn{trace2Prov (F)}{
+
+ p $\leftarrow$ createProvDocument() \\
 
 
+\For{ x $\in$ F}{
 
+\If{ s $\not\in$ p}{
+s $\leftarrow$ createAgent() \\
+}
 
+\If{ d $\not\in$ p}{
+ d $\leftarrow$ createAgent() \\
+}
+ 
+ e $\leftarrow$ createEntity()  \\
 
+ c $\leftarrow$ createActivity() \\
+ 
+ 
+ 
+ \If{ x $\not\in$ p}{
+ 
+ x $\leftarrow$  relateSensorToDevice() \\
+ 
+ }
+ 
+\If{ y $\not\in$ p}{
+ 
+ y $\leftarrow$ relateActivityToSensor()\\ 
+ 
+ }
+ 
+z $\leftarrow$ relateEntityToActivity()  \\
+ 
+  
+
+ 
+ 
+}
+
+ return p \\
+}
+
+\end{algorithm}
 
 
 \section{Provenance-Aware System Implementation}
-In this section, we outline components the provenance collection system and describe how provenance trace is collected across the IoT framework. Figure \ref{architecture} displays the system architecture of our approach. Sensor and actuator readings in the form of input and output (I/O) events are recorded by the tracer component. This component intercepts system level I/O events and produces trace information represented in Common Trace Format (CTF). CTF encodes binary trace output information containing multiple streams of binary events such as I/O activity. Trace information is converted to provenance data in the PROV-DM IoT model and serialized to PROV-JSON. CTF conversion to PROV-DM is achieved using babeltrace. This conversion can happen at any layer of the IoT stack. Babeltrace is a plugin framework which allows the conversion of CTF traces into other formats. Trace or provenance data is securely transmitted to a gateway and later transmitted and stored in a cloud backend. Our backend of choice is Neo4j, a graph database for efficient storage, query and visualization of provenance data.
+In this section, we outline components the provenance collection system and describe how provenance trace is collected across the IoT framework. Figure \ref{architecture} displays the system architecture of our approach. Sensor and actuator readings in the form of input and output (I/O) events are recorded by the tracer component. This component intercepts system level I/O events and produces trace information represented in Common Trace Format (CTF). 
+
+%CTF encodes binary trace output information containing multiple streams of binary events such as I/O activity.
+
+CTF Trace information is converted to provenance data in the PROV-DM IoT model and serialized to PROV-JSON. CTF conversion to PROV-DM is achieved using babeltrace. This conversion can happen at any layer of the IoT stack. Babeltrace is a plugin framework which allows the conversion of CTF traces into other formats. Trace or provenance data is securely transmitted to a gateway and later transmitted and stored in a cloud backend. Our backend of choice is Neo4j, a graph database for efficient storage, query and visualization of provenance data. CTF contains a mandatory stream known as metadata. Metadata contains information of other streams. It allows to parse a stream without specifying a layout.
+
+
+\subsubsection{Common Trace Format (CTF) }
+CTF allows traces to be generated by C/C++ applications. It encodes binary trace output information containing multiple streams of binary events such as I/O activity.  CTF is composed of multiple streams of events. Each event can be broken into as multiple streams. Streams allows for fast processing since they do not have to be stored in disk before  being sent over a network or processed in memory.
+
+
+
 
 
 \begin{figure}[h!]
@@ -832,15 +900,15 @@ Our goal is to create a provenance-aware system which records I/O operations on 
 
 %\item Real Time Executive for Multiprocessor Systems (RTEMS) is an open source real­time operating system (RTOS) for embedded systems. This operating system is a typical RTOS that may be deployed in IoT devices.
 
-\item Neo4j, a graph database which allows optimized querying of graph data. Since provenance represents causal dependencies, it is ideal to use a graph database to store the relationships between objects
+\item Neo4j \footnote{https://neo4j.com/product/}, a graph database which allows optimized querying of graph data. Since provenance represents causal dependencies, it is ideal to use a graph database to store the relationships between objects
 
 %\item lttng, a software tool for collecting system level trace on Linux system. 
 
-\item Babeltrace:  This is a trace converter tool. It contains plugins used to convert traces from one format into another. 
+\item Babeltrace\footnote{http://diamon.org/babeltrace/}:  This is a trace converter tool for barectf. It contains plugins used to convert traces from one format into another (e.g CTF to other formats). 
 
-\item barectf: This is an application that collects bare metal application trace in CTF.
+\item barectf\footnote{https://github.com/efficios/barectf}: This is a light weight  command line generator of C tracers used to  generate bare metal application trace. Trace data collected is generated in CTF.
 
-\item yaml generator: yaml generator creates yaml files. A yaml configuration file contains information on what barectf application needs in order to generate CTF trace output. This consist of configuration settings such as an application trace stream, packet type, payload type and size. 
+\item yaml generator: A yaml generator is contained in a barectf. It creates yaml files. It contains configuration file contains information on what barectf application needs in order to generate CTF trace output. This consist of configuration settings such as an application trace stream, packet type, payload type and size. 
 
 %\item rasberrypi
 
@@ -865,7 +933,7 @@ TODO...
 
 
 \section{Conclusion}
-In this paper, we motivate the need for integrating provenance into the IoT architecture. We propose a provenance collection framework that provides provenance collection capabilities for devices in the IoT. 
+In this paper, we motivate the need for integrating provenance into the IoT architecture. We propose a provenance collection framework that provides provenance collection capabilities for devices in an IoT system. 
 
 \section{Future Work}
 
@@ -887,7 +955,8 @@ Some of the proposed future work are outlined below:
 % use section* for acknowledgment
 \section*{Acknowledgment}
 
-The authors would like to thank...
+This research has been supported in part by US National Science Foundation
+ (CNS grant No:1646317), and by a generous gift from Leidos. Any opinions, findings and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of NSF or Leidos.
 
 
 

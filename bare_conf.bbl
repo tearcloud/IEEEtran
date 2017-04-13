@@ -27,60 +27,31 @@ M.~Stanislav, ``Hacking iot: A case study on baby monitor exposures and
   \url{https://www.rapid7.com/docs/Hacking-IoT-A-Case-Study-on-Baby-Monitor-Exposures-and-Vulnerabilities.pdf},
   Sep 2015, accessed: 2016-10-01.
 
-\bibitem{glavic_case_2011}
+\bibitem{weiser1991}
+M.~Weiser, ``The computer for the 21st century,'' \emph{Scientific american},
+  vol. 265, no.~3, pp. 94--104, 1991.
+
+\bibitem{ashton2009internet}
+K.~Ashton, ``That ‘internet of things’ thing,'' \emph{RFiD Journal},
+  vol.~22, no.~7, pp. 97--114, 2009.
+
+\bibitem{yan2008internet}
+L.~Yan, Y.~Zhang, L.~T. Yang, and H.~Ning, \emph{The Internet of things: from
+  RFID to the next-generation pervasive networked systems}.\hskip 1em plus
+  0.5em minus 0.4em\relax CRC Press, 2008.
+
+\bibitem{gubbi_internet_2013}
 \BIBentryALTinterwordspacing
-B.~Glavic, K.~S. Esmaili, P.~M. Fischer, and N.~Tatbul, ``The {Case} for
-  {Fine}-{Grained} {Stream} {Provenance},'' in \emph{Proceedings of the 1st
-  {Workshop} on {Data} {Streams} and {Event} {Processing} ({DSEP}) collocated
-  with {BTW}}, 2011. [Online]. Available:
-  \url{http://cs.iit.edu/%7edbgroup/pdfpubls/GE11.pdf}
+J.~Gubbi, R.~Buyya, S.~Marusic, and M.~Palaniswami, ``Internet of {Things}
+  ({IoT}): {A} vision, architectural elements, and future directions,''
+  \emph{Future Generation Computer Systems}, vol.~29, no.~7, pp. 1645--1660,
+  Sep. 2013. [Online]. Available:
+  \url{http://www.sciencedirect.com/science/article/pii/S0167739X13000241}
 \BIBentrySTDinterwordspacing
 
-\bibitem{groth}
-P.~Groth, S.~Miles, and L.~Moreau, ``{PReServ}: {Provenance} recording for
-  services,'' in \emph{In, UK e-Science All Hands Meeting 2005, Nottingham, UK,
-  EPSRC}.
-
-\bibitem{altintas}
-\BIBentryALTinterwordspacing
-I.~Altintas, O.~Barney, and E.~Jaeger-Frank,
-  ``\BIBforeignlanguage{en}{Provenance {Collection} {Support} in the {Kepler}
-  {Scientific} {Workflow} {System}},'' in
-  \emph{\BIBforeignlanguage{en}{Provenance and {Annotation} of {Data}}}, ser.
-  Lecture {Notes} in {Computer} {Science}, L.~Moreau and I.~Foster, Eds.\hskip
-  1em plus 0.5em minus 0.4em\relax Springer Berlin Heidelberg, May 2006, no.
-  4145, pp. 118--132, dOI: 10.1007/11890850\_14. [Online]. Available:
-  \url{http://link.springer.com/chapter/10.1007/11890850_14}
-\BIBentrySTDinterwordspacing
-
-\bibitem{bates_towards_2013}
-\BIBentryALTinterwordspacing
-A.~Bates, B.~Mood, M.~Valafar, and K.~Butler, ``Towards {Secure}
-  {Provenance}-based {Access} {Control} in {Cloud} {Environments},'' in
-  \emph{Proceedings of the {Third} {ACM} {Conference} on {Data} and
-  {Application} {Security} and {Privacy}}, ser. {CODASPY} '13.\hskip 1em plus
-  0.5em minus 0.4em\relax New York, NY, USA: ACM, 2013, pp. 277--284. [Online].
-  Available: \url{http://doi.acm.org/10.1145/2435349.2435389}
-\BIBentrySTDinterwordspacing
-
-\bibitem{muniswamy_reddy_provenance_2010}
-\BIBentryALTinterwordspacing
-K.-K. Muniswamy-Reddy, P.~Macko, and M.~Seltzer, ``Provenance for the
-  {Cloud},'' in \emph{Proceedings of the 8th {USENIX} {Conference} on {File}
-  and {Storage} {Technologies}}, ser. {FAST}'10.\hskip 1em plus 0.5em minus
-  0.4em\relax Berkeley, CA, USA: USENIX Association, 2010, pp. 15--14.
-  [Online]. Available: \url{http://dl.acm.org/citation.cfm?id=1855511.1855526}
-\BIBentrySTDinterwordspacing
-
-\bibitem{muniswamy_reddy}
-\BIBentryALTinterwordspacing
-K.-K. Muniswamy-Reddy, D.~A. Holland, U.~Braun, and M.~Seltzer,
-  ``Provenance-aware {Storage} {Systems},'' in \emph{Proceedings of the
-  {Annual} {Conference} on {USENIX} '06 {Annual} {Technical} {Conference}},
-  ser. {ATEC} '06.\hskip 1em plus 0.5em minus 0.4em\relax Berkeley, CA, USA:
-  USENIX Association, 2006, pp. 4--4. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=1267359.1267363}
-\BIBentrySTDinterwordspacing
+\bibitem{TCDP1999}
+Rationality., \emph{{The Cambridge Dictionary of Philosophy}}.\hskip 1em plus
+  0.5em minus 0.4em\relax Cambridge University Press, 1999.
 
 \bibitem{cheney_provenance_2009}
 \BIBentryALTinterwordspacing
@@ -90,18 +61,23 @@ J.~Cheney, L.~Chiticariu, and W.-C. Tan, ``Provenance in {Databases}: {Why},
   \url{http://dx.doi.org/10.1561/1900000006}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Bertino2015}
+\bibitem{buneman_why_2001}
 \BIBentryALTinterwordspacing
-E.~Bertino, \emph{Data Trustworthiness---Approaches and Research
-  Challenges}.\hskip 1em plus 0.5em minus 0.4em\relax Cham: Springer
-  International Publishing, 2015, pp. 17--25. [Online]. Available:
-  \url{"http://dx.doi.org/10.1007/978-3-319-17016-9_2"}
+P.~Buneman, S.~Khanna, and T.~Wang-Chiew, ``\BIBforeignlanguage{en}{Why and
+  {Where}: {A} {Characterization} of {Data} {Provenance}},'' in
+  \emph{\BIBforeignlanguage{en}{Database {Theory} — {ICDT} 2001}}, ser.
+  Lecture {Notes} in {Computer} {Science}, J.~V.~d. Bussche and V.~Vianu,
+  Eds.\hskip 1em plus 0.5em minus 0.4em\relax Springer Berlin Heidelberg, Jan.
+  2001, no. 1973, pp. 316--330, dOI: 10.1007/3-540-44503-X\_20. [Online].
+  Available: \url{http://link.springer.com/chapter/10.1007/3-540-44503-X_20}
 \BIBentrySTDinterwordspacing
 
-\bibitem{zawoadfecloud}
-S.~Zawoad and R.~Hasan, ``Fecloud: A trustworthy forensics-enabled cloud
-  architecture,'' in \emph{11th Annual IFIP WG 11 International Conference on
-  Digital Forensics}, 2015.
+\bibitem{prov_dm}
+\BIBentryALTinterwordspacing
+``{PROV}-{DM}: {The} {PROV} {Data} {Model},''
+  \url{https://www.w3.org/TR/prov-dm/}, accessed: 2016-10-01. [Online].
+  Available: \url{https://www.w3.org/TR/prov-dm/}
+\BIBentrySTDinterwordspacing
 
 \bibitem{_general-purpose_2012}
 \BIBentryALTinterwordspacing
@@ -130,6 +106,25 @@ E.~Gessiou, V.~Pappas, E.~Athanasopoulos, A.~D. Keromytis, and S.~Ioannidis,
   \url{http://link.springer.com/chapter/10.1007/978-3-642-30436-1_9}
 \BIBentrySTDinterwordspacing
 
+\bibitem{muniswamy_reddy_provenance_2010}
+\BIBentryALTinterwordspacing
+K.-K. Muniswamy-Reddy, P.~Macko, and M.~Seltzer, ``Provenance for the
+  {Cloud},'' in \emph{Proceedings of the 8th {USENIX} {Conference} on {File}
+  and {Storage} {Technologies}}, ser. {FAST}'10.\hskip 1em plus 0.5em minus
+  0.4em\relax Berkeley, CA, USA: USENIX Association, 2010, pp. 15--14.
+  [Online]. Available: \url{http://dl.acm.org/citation.cfm?id=1855511.1855526}
+\BIBentrySTDinterwordspacing
+
+\bibitem{muniswamy_reddy}
+\BIBentryALTinterwordspacing
+K.-K. Muniswamy-Reddy, D.~A. Holland, U.~Braun, and M.~Seltzer,
+  ``Provenance-aware {Storage} {Systems},'' in \emph{Proceedings of the
+  {Annual} {Conference} on {USENIX} '06 {Annual} {Technical} {Conference}},
+  ser. {ATEC} '06.\hskip 1em plus 0.5em minus 0.4em\relax Berkeley, CA, USA:
+  USENIX Association, 2006, pp. 4--4. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=1267359.1267363}
+\BIBentrySTDinterwordspacing
+
 \bibitem{hi_fi}
 \BIBentryALTinterwordspacing
 D.~J. Pohly, S.~McLaughlin, P.~McDaniel, and K.~Butler, ``Hi-{Fi}: {Collecting}
@@ -152,6 +147,16 @@ Y.~Ji, S.~Lee, and W.~Lee, ``\BIBforeignlanguage{en}{{RecProv}: {Towards}
   \url{http://link.springer.com/chapter/10.1007/978-3-319-40593-3_1}
 \BIBentrySTDinterwordspacing
 
+\bibitem{bates_towards_2013}
+\BIBentryALTinterwordspacing
+A.~Bates, B.~Mood, M.~Valafar, and K.~Butler, ``Towards {Secure}
+  {Provenance}-based {Access} {Control} in {Cloud} {Environments},'' in
+  \emph{Proceedings of the {Third} {ACM} {Conference} on {Data} and
+  {Application} {Security} and {Privacy}}, ser. {CODASPY} '13.\hskip 1em plus
+  0.5em minus 0.4em\relax New York, NY, USA: ACM, 2013, pp. 277--284. [Online].
+  Available: \url{http://doi.acm.org/10.1145/2435349.2435389}
+\BIBentrySTDinterwordspacing
+
 \bibitem{story}
 \BIBentryALTinterwordspacing
 R.~Spillane, R.~Sears, C.~Yalamanchili, S.~Gaikwad, M.~Chinni, and E.~Zadok,
@@ -169,6 +174,11 @@ S.~T. King and P.~M. Chen, ``Backtracking intrusions,'' in \emph{Proceedings of
   '03.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY, USA: ACM, 2003, pp.
   223--236. [Online]. Available: \url{http://doi.acm.org/10.1145/945445.945467}
 \BIBentrySTDinterwordspacing
+
+\bibitem{groth}
+P.~Groth, S.~Miles, and L.~Moreau, ``{PReServ}: {Provenance} recording for
+  services,'' in \emph{In, UK e-Science All Hands Meeting 2005, Nottingham, UK,
+  EPSRC}.
 
 \bibitem{tariq_towards_2012}
 \BIBentryALTinterwordspacing

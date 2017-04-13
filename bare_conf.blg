@@ -14,45 +14,45 @@ Database file #1: refrences.bib
 Warning--empty year in groth
 
 Done.
-You've used 21 entries,
+You've used 24 entries,
             4087 wiz_defined-function locations,
-            985 strings with 13486 characters,
-and the built_in function-call counts, 18741 in all, are:
-= -- 1500
-> -- 425
-< -- 137
-+ -- 220
-- -- 72
-* -- 1014
-:= -- 2837
-add.period$ -- 56
-call.type$ -- 21
-change.case$ -- 30
-chr.to.int$ -- 345
-cite$ -- 22
-duplicate$ -- 1295
-empty$ -- 1608
-format.name$ -- 94
-if$ -- 4354
+            1004 strings with 13560 characters,
+and the built_in function-call counts, 20857 in all, are:
+= -- 1690
+> -- 460
+< -- 163
++ -- 243
+- -- 76
+* -- 1111
+:= -- 3168
+add.period$ -- 62
+call.type$ -- 24
+change.case$ -- 33
+chr.to.int$ -- 399
+cite$ -- 25
+duplicate$ -- 1442
+empty$ -- 1747
+format.name$ -- 98
+if$ -- 4842
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 242
-newline$ -- 120
-num.names$ -- 27
-pop$ -- 575
+int.to.str$ -- 24
+missing$ -- 266
+newline$ -- 129
+num.names$ -- 29
+pop$ -- 613
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1394
+skip$ -- 1559
 stack$ -- 0
-substring$ -- 830
-swap$ -- 1053
-text.length$ -- 22
+substring$ -- 958
+swap$ -- 1193
+text.length$ -- 30
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 21
+type$ -- 24
 warning$ -- 1
-while$ -- 92
-width$ -- 23
-write$ -- 282
+while$ -- 102
+width$ -- 26
+write$ -- 312
 (There was 1 warning)
