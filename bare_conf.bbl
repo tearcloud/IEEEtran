@@ -147,16 +147,6 @@ Y.~Ji, S.~Lee, and W.~Lee, ``\BIBforeignlanguage{en}{{RecProv}: {Towards}
   \url{http://link.springer.com/chapter/10.1007/978-3-319-40593-3_1}
 \BIBentrySTDinterwordspacing
 
-\bibitem{bates_towards_2013}
-\BIBentryALTinterwordspacing
-A.~Bates, B.~Mood, M.~Valafar, and K.~Butler, ``Towards {Secure}
-  {Provenance}-based {Access} {Control} in {Cloud} {Environments},'' in
-  \emph{Proceedings of the {Third} {ACM} {Conference} on {Data} and
-  {Application} {Security} and {Privacy}}, ser. {CODASPY} '13.\hskip 1em plus
-  0.5em minus 0.4em\relax New York, NY, USA: ACM, 2013, pp. 277--284. [Online].
-  Available: \url{http://doi.acm.org/10.1145/2435349.2435389}
-\BIBentrySTDinterwordspacing
-
 \bibitem{story}
 \BIBentryALTinterwordspacing
 R.~Spillane, R.~Sears, C.~Yalamanchili, S.~Gaikwad, M.~Chinni, and E.~Zadok,
@@ -165,38 +155,6 @@ R.~Spillane, R.~Sears, C.~Yalamanchili, S.~Gaikwad, M.~Chinni, and E.~Zadok,
   {TAPP}'09.\hskip 1em plus 0.5em minus 0.4em\relax Berkeley, CA, USA: USENIX
   Association, 2009, pp. 11:1--11:10. [Online]. Available:
   \url{http://dl.acm.org/citation.cfm?id=1525932.1525943}
-\BIBentrySTDinterwordspacing
-
-\bibitem{King:2003:BI:945445.945467}
-\BIBentryALTinterwordspacing
-S.~T. King and P.~M. Chen, ``Backtracking intrusions,'' in \emph{Proceedings of
-  the Nineteenth ACM Symposium on Operating Systems Principles}, ser. SOSP
-  '03.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY, USA: ACM, 2003, pp.
-  223--236. [Online]. Available: \url{http://doi.acm.org/10.1145/945445.945467}
-\BIBentrySTDinterwordspacing
-
-\bibitem{groth}
-P.~Groth, S.~Miles, and L.~Moreau, ``{PReServ}: {Provenance} recording for
-  services,'' in \emph{In, UK e-Science All Hands Meeting 2005, Nottingham, UK,
-  EPSRC}.
-
-\bibitem{tariq_towards_2012}
-\BIBentryALTinterwordspacing
-D.~Tariq, M.~Ali, and A.~Gehani, ``Towards {Automated} {Collection} of
-  {Application}-level {Data} {Provenance},'' in \emph{Proceedings of the 4th
-  {USENIX} {Conference} on {Theory} and {Practice} of {Provenance}}, ser.
-  {TaPP}'12.\hskip 1em plus 0.5em minus 0.4em\relax Berkeley, CA, USA: USENIX
-  Association, 2012, pp. 16--16. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=2342875.2342891}
-\BIBentrySTDinterwordspacing
-
-\bibitem{ghoshal_provenance_2013}
-\BIBentryALTinterwordspacing
-D.~Ghoshal and B.~Plale, ``Provenance from {Log} {Files}: {A} {BigData}
-  {Problem},'' in \emph{Proceedings of the {Joint} {EDBT}/{ICDT} 2013
-  {Workshops}}, ser. {EDBT} '13.\hskip 1em plus 0.5em minus 0.4em\relax New
-  York, NY, USA: ACM, 2013, pp. 290--297. [Online]. Available:
-  \url{http://doi.acm.org/10.1145/2457317.2457366}
 \BIBentrySTDinterwordspacing
 
 \bibitem{lim}
