@@ -115,7 +115,6 @@
 
 %footnote package
 
-\usepackage{footnote}
 
 \usepackage[vlined,ruled]{algorithm2e}
 
@@ -253,9 +252,14 @@
 
 
 
+ 
+ \usepackage[bottom]{footmisc}
+
 % *** FLOAT PACKAGES ***
 %
 %\usepackage{fixltx2e}
+
+
 % fixltx2e, the successor to the earlier fix2col.sty, was written by
 % Frank Mittelbach and David Carlisle. This package corrects a few problems
 % in the LaTeX2e kernel, the most notable of which is that in current
@@ -739,7 +743,7 @@ In this section, we describe the sensor-provenance model alignment, we discuss h
 
 \par Sensor data contains observation information such as temperature, location details which can be represented in various standardized data interchange formats (RDF, XML, JSON e.t.c). For our implementation, sensor data is generated in CTF format. Further information on CTF is described in section V. Trace data containing sensor-actuator readings are important components but do not depict dependency relationship when used alone. Trace data is transformed to provenance to depict relationship between entities contained in an IoT system. Provenance Ontology and sensor data can be further aligned for better representation of dependency relationships between sensor data.
 
-\par A single sensor has the capability of collecting multiple trace data, $t_d$. A combination of trace data is regraded as an event. An example of events are temperature, location, humidity information e.t.c. We define an event  for sensor $s_1$ as $e= \{td_1, ...td_n\} $ where $td_1$ is the first trace data collected by $s_1$  and $td_n$ is the last trace data contained collected by the sensor. \\ \\ $[sensor, actuator, device] \in \{prov:agent\}$  \\ $[datapoint] \in \{prov:entity\} $
+\par A single sensor has the capability of collecting multiple trace data, $t_d$. A combination of trace data is regraded as an event. An example of events are temperature, location, humidity information e.t.c. We define an event  for sensor $s_1$ as $e= \{td_1, ...td_n\} $ where $td_1$ is the first trace data collected by $s_1$  and $td_n$ is the last trace data contained collected by the sensor. \\ \\ $[sensor, actuator, device] \in \{prov:agent\}$  \\ $[datapoint] \in \{prov:entity\} $ \\
 
 \par Using the PROV-O, in an IoT system containing multiple sensors, device and sensors information are represented as agents (prov:agents), the operation performed on sensor-actuator data (read, create, update) represents provenance activity (prov:activity). Events are represented as an entities (prov:entity). Each sensor-actuator data generated is represented as a tuple  $ <t, e, s_1, r_1>$ where $t$ represents a timestamp, $e$ represents an event in which trace data is collected, $s_1$ represents sensor information and $r_1$ represents device information. 
 
@@ -820,6 +824,7 @@ In this section, we outline components the provenance collection system and desc
 %CTF encodes binary trace output information containing multiple streams of binary events such as I/O activity.
 
 CTF Trace information is converted to provenance data in the PROV-DM IoT model and serialized to PROV-JSON. CTF conversion to PROV-DM is achieved using babeltrace. This conversion can happen at any layer of the IoT stack. Babeltrace is a plugin framework which allows the conversion of CTF traces into other formats. Trace or provenance data is securely transmitted to a gateway and later transmitted and stored in a cloud backend. Our backend of choice is Neo4j, a graph database for efficient storage, query and visualization of provenance data. CTF contains a mandatory stream known as metadata. Metadata contains information of other streams. It allows to parse a stream without specifying a layout.
+
 
 
 \subsubsection{Common Trace Format (CTF) }
