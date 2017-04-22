@@ -335,7 +335,9 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Towards a Provenance-Aware Internet of Things (IoT) System}
+%\title{Towards a Provenance-Aware Internet of Things (IoT) System}
+
+\title{PAITS: A Provenance Collection Framework for Internet of Things (IoT) Systems }
 
 
 % author names and affiliations
@@ -368,11 +370,12 @@
 % of the page, use this alternative format:
 % 
 \author{\IEEEauthorblockN{
-Ebelechukwu Nwafor \IEEEauthorrefmark{1},
-David Hill\IEEEauthorrefmark{1}, 
-Andre Campbell\IEEEauthorrefmark{1} and
-Gedare Bloom\IEEEauthorrefmark{1}}
-\IEEEauthorblockA{\IEEEauthorrefmark{1}Department of Electrical Engineering and Computer Science\\
+Ebelechukwu Nwafor,
+Andre Campbell, 
+David Hill,
+ and
+Gedare Bloom}
+\IEEEauthorblockA{Department of Electrical Engineering and Computer Science\\
 Howard University,
 Washington, DC 20059\\ Email: ebelechukwu.nwafor@bison.howard.edu}
 %\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
@@ -419,7 +422,7 @@ from the time it was created to its current state. Data provenance has been
 explored in the areas of scientific computing, business, forensic analysis, and
 intrusion detection. Data provenance can help in detecting and mitigating
 malicious cyber attacks. In this paper, we explore the integration of provenance within the IoT.
-We propose a provenance collection framework for IoT devices. We evaluate the effectiveness
+We introduce PAITS, a  provenance collection framework for IoT devices. We evaluate the effectiveness
 of our framework by looking at an application of provenance data by developing a prototype system for proof of concept.
 \end{abstract}
 
@@ -442,32 +445,24 @@ of our framework by looking at an application of provenance data by developing a
 
 \section{Introduction}
 % no \IEEEPARstart
-The Internet of Things (IoT) is transforming commercial and industrial information technology all over the world.  Heterogeneous devices are communicating with each other over a shared network (e.g internet). For example, you can automatically control the temperature of a house remotely though the use of a cell phone. 
+The Internet of Things (IoT) is transforming commercial and industrial information technology all over the world. IoT offers immense benefits in the areas of home, industrial and commercial automation however, the IoT is undergoing an exponential increase in the number of devices connected to the Internet. Accoring to a report released by cisco \cite{dave}, It is estimated that over 50 million devices will be connected to the internet by the year 2020. With the vast amounts of connected heterogeneous devices, security and privacy risks are increased. For example, vulnerabilities in baby monitors allowed unauthorized access to devices whereby a malicious intruder can view live feeds from a remote location \cite{rapid7}. Most IoT devices are not initially developed with security in mind. This raises the complexity of including security after the device has been deployed. For instance some devices come with default passwords which might never be changed during the device lifecycle.  
 
-IoT offers immense benefits in the areas of home, industrial and vehicle automation by making operations which might require lots of interaction seamless and also preventing accidents which might be due to human error. However, with this unprecedented level of devices (things) communicating in the IoT, there has been an exponential increase in the number of devices connected to the internet. It is estimated that over 50 million devices will be connected to the internet by the year 2020. With the vast amounts of connected heterogeneous devices, security and privacy risks is increased. Rapid7 \cite{rapid7}, an  internet security and analytics organization, released a report highlighting vulnerabilities that exist on select IoT devices. In their report, they outline  vulnerabilities in baby monitors which allowed intruders unauthorized access to devices whereby a malicious intruder can view live feeds from a remote location. 
+\par Due to the heterogeneity of devices and the level of uncertainty in deployments devices in IoT, trust is a critical step to ensuring the security of IoT devices. This can be achieved through data Provenance. Data provenance is a comprehensive history of activities that occurred on an entity from its origin to its current state. Provenance ensures confidence in the accuracy of data in an IoT system. Provenance has been applied in domains such as scientific workflow for experiment reproducibility, information security as a form of access control and also for intrusion detection in mitigating malicious adversaries. For IoT devices (things) that produce lots of sensor-actuator data, a workflow representation of how sensor data is generated can depict dependency between sensor readings and information in the device. 
 
-\par Most IoT devices are not initially developed with security in mind. This raises the complexity of including security after the device has been deployed. For instance some devices come with default passwords which might never be changed during its lifecycle.  The amount of data generated from IoT
-devices requires stronger levels of trust which can be achieved through data
-provenance. Data provenance is a comprehensive history of activities that occurred on an entity from its origin to its current state. Provenance ensures integrity of data . Provenance has been applied in various domains such as scientific workflow for experiment reproducibility, information security as a form of access control and also for intrusion detection in mitigating malicious adversaries.  Provenance ensure trust and integrity of data. For IoT devices (things) that produces lots of sensor-actuator data, a workflow representation of of how sensor data is generated can be used to depict dependency between sensor-actuator readings and devices/sensor information contained in the device. This information generated prove to be beneficial as a means for mitigating malicious intrusion or for scientific reproducability. 
-\par In this paper, we propose a provenance aware framework for IoT devices, in which provenance data is collected and modeled to represent dependencies between sensor-actuator readings and the various entities contained in the IoT architecture. Most of the interconnected heterogeneous devices (things) are embedded systems which require lightweight and efficient solutions as compared to general purpose
-systems. This requirement is attributed to the constrained memory and computing power of such
-devices.
+\par In this paper, we propose PAITS, a provenance collection framework for IoT systems, in which provenance data is collected and modeled to represent dependencies between sensor-actuator readings and the entities in an IoT system. Most of the interconnected heterogeneous devices (things) are embedded systems which require a lightweight and efficient solution as compared to general purpose
+systems. This requirement is attributed to the constrained memory and computing power of such. We also propose a provenance sensor model alignment which provides a direct correlation of sensor readings to provenance data.
 
-\par The remaining portion of this paper is organized as follows: section 2 discusses background information on IoT definition, architecture, application domains and data provenance. Section 3 motivates the need for incorporating provenance to IoT  with a use case scenario of an automated smart home. Section 3 talks about related work in provenance collection systems. Section 4 discusses implementation details for provenance collection framework. Section 5 talks about results and experiment analysis. Finally, in section 6 we conclude with future research directions.
+\par The rest of the paper is organized as follows. In section II, we discuss background information on IoT and data provenance, we also motivate the need to incorporate provenance with IoT  by using a use case scenario. In section III, we discuss how provenance model and sensor data are aligned. In section IV, we discuss implementation details for PAITS. In section V, we discuss related works. Finally, in section V, we conclude with future research directions.
 
 
 \section{Background} 
-This section describes key concepts of data provenance, IoT characteristics, and provenance models. It also provides motivating example for the need for provenance collection via a use case.
+In this section, we  describe key concepts of data provenance, IoT characteristics, and provenance models. We also provide a motivating example for the need for provenance collection via a use case.
 
 \subsection{Internet of Things}
- There is no standard definition of IoT. The notion of connected things is broad and encompasses several application domain making it hard to define however, researchers have tried to defined the IoT over the years.
 
-
-In 1991, Mark Weiser \cite{weiser1991}, a pioneer of ubiquitous computing envisioned the notion of computing interleaved in our daily lives. Kevin Ashton \cite{ashton2009internet}, an early pioneer of IoT, in his presentation to Proctor \& Gamble in on an idea of linking RFID in P\&G's supply chain to the internet, defines the internet of things as devices in our everyday lives which can be identified connected to a network. These devices can learn from information gathered autonomously without human input which allows for improvements in waste reduction and overall standard of living. Buckley et al \cite{yan2008internet} defines the internet of things as a network of billions of machines communicating with each other. Gubbi et al \cite{gubbi_internet_2013} defines the IoT as an interconnection of sensing and actuating
+In 1991, Mark Weiser, a pioneer of ubiquitous computing envisioned the notion of computing interleaved in our daily lives \cite{weiser1991}. Kevin Ashton, an early pioneer of IoT, defines the IoT as devices in our everyday lives which can be identified connected to a network \cite{ashton2009internet}. These devices can learn from information gathered autonomously without human input which allows for improvements in waste reduction and overall standard of living. Buckley et al. \cite{yan2008internet} define the IoT as a network of billions of machines communicating with each other. Gubbi et al \cite{gubbi_internet_2013} defines the IoT as an interconnection of sensing and actuating
 devices that allows data sharing across platforms through a centralized framework. We
-define (IoT) as follows:  
-
-The Internet of Things (IoT) is a network of heterogeneous devices with sensing and actuating capabilities communicating over the internet.
+define the IoT as a network of heterogeneous devices with sensing and actuating capabilities communicating over the Internet.
 
 %\newtheorem{definition}{Definition}
 %
@@ -479,23 +474,20 @@ The Internet of Things (IoT) is a network of heterogeneous devices with sensing 
 %\end{definition}
 
 
-\par IoT has applications in home automation, smart health, automotive communication, machine to machine comminication, industrial automation. The notion of IoT has been attributed to smart devices. The interconnectivity between various heterogeneous devices allows for devices to share information in a unique manner.
+\par IoT has applications in home automation, smart health, automotive communication, machine to machine communication, industrial automation. The interconnectivity between heterogeneous devices allows them to share information in a unique manner.
 Analytics is a driving force for IoT. With analytics, devices can learn from user data
-to make smarter decisions. This notion of smart devices is seen in various commercial
-applications such as smartwatches, thermostats that automatically learns a user patterns. The ubiquitous nature of these devices make them ideal choices to be included in consumer products.  IoT architecture represents a functional hierarchy of how information is disseminated across
-multiple hierarchies contained in an IoT framework; from devices which contain sensing and
-actuating capabilities to massive data centers (cloud storage). Knowing how information
-is transmitted across layers allows a better understanding on how to model the flow of
-information across actors contained in an IoT hierarchy.
-Figure 1 displays the IoT architecture and the interactions between the respective
-layers. IoT architecture consists of four distinct layers: The sensor and actuator layer, device layer, gateway layer and the cloud layer. The base of the architectural stack consist of sensors and actuators which gathers provenance information and interacts with the device layer. The device layer consists of
-devices (e.g mobile phones, laptops, smart devices) which are responsible for aggregating
-data collected from sensors and actuators. These devices in turn forwards the aggregated
+to make smarter decisions. IoT architecture represents a functional hierarchy of how information is disseminated from devices which contain sensing and
+actuating capabilities to massive data centers (cloud storage). 
+
+\par Figure 1 displays the IoT architecture and the interactions between the respective
+layers. IoT architecture consists of four distinct layers: sensor and actuator, device, gateway and cloud. The base of the architectural stack consists of sensors and actuators that gather information and interact with the device layer. The device layer consists of
+devices responsible for aggregating
+data collected from sensors and actuators. These devices in turn forward the aggregated
 data to the gateway layer. The gateway layer routes and forwards data collected from the
-device later. It could also serve as a medium of temporary storage and data processing.
+device layer.
 The cloud layer is involved with the storage and processing of data collected from the
-gateway layer. Note that the resource constraints decreases up the architectural stack with
-the cloud layer having the most resources (memory, power computation) and the sensor-
+gateway layer. Note that the resource constraints decrease up the architectural stack with
+the cloud layer having the most resources (memory, power, computation) and the sensor-
 actuator layer having the least. 
 
 
@@ -511,106 +503,106 @@ actuator layer having the least.
 
 \end{figure}
 
-With the recent data explosion [22] due to the large influx  in amounts of interconnected devices, information is disseminated at a fast rate and with this increase involves security and privacy concerns. Creating a provenance-aware system is beneficial to IoT because it
-ensures the trust and integrity of interconnected devices. Enabling provenance collection in IoT devices allows these devices to capture valuable information which enables backtracking in an event of a malicious attack. 
-
-
 \subsection{Provenance-Aware IoT Device Use Case}
+
+Creating a provenance-aware system is beneficial to IoT because it
+ensures the trust and integrity of interconn ected devices. Enabling provenance collection in IoT devices allows these devices to capture valuable information which enables backtracking in an event of a malicious attack. 
+
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[height=2.5in]{smart_home.png}
 \end{center}
-\caption{Smart home use case Diagram}
+\caption{Smart home use case scenario which demonstrates how provenance can be used to detect a point of entry of malicious intrusion}
 \label{smart_home}
 \end{figure}
 
 
 
-Consider a smart home as illustrated in Figure \ref{smart_home} that contains interconnected devices such as a thermostat which automatically detects and regulates the temperature of a room based on prior information of a user's temperature preferences, a smart lock system that can be controlled remotely and informs a user via short messaging when the door has been opened or is closed, a home security camera monitoring system, a smart fridge which sends a reminder when food products are low. In an event that a malicious intruder attempts  to gain access to the smart lock system and security camera remotely, provenance information can be used to track the series  of events to determine where and how a malicious attack originated. Provenance can also be used as a safeguard to alert of a possible remote or insider compromise thereby protecting against future or ongoing malicious attacks. 
+Consider a smart home as illustrated in Figure \ref{smart_home} which contains interconnected devices such as a thermostat which automatically detects and regulates the temperature of a room based on prior information of a user's temperature preferences, a smart lock system that can be controlled remotely and informs a user via short messaging when the door has been opened or is closed, a home security camera monitoring system, a smart fridge which sends a reminder when food products are low. In an event that a malicious intruder attempts  to gain access to the smart lock system and security camera remotely, provenance information can be used to track the series  of events to determine where and how a malicious attack originated. Provenance can also be used as a safeguard to alert of a possible remote or insider compromise thereby protecting against future or ongoing malicious attacks. 
 
 
 
 \subsection{Data Provenance}
 
-The Oxford English dictionary \cite{TCDP1999} defines provenance as ``the place of origin or earliest
-known history of something". An example of provenance can be seen with a college transcript. A transcript is the provenance of a college degree because it outlines all of the
-courses satisfied in order to attain the degree. In the field of computing, data provenance, also known as data lineage, can be defined as the history of all activities performed on entities from its creation to its current state.
-Cheney et al \cite{cheney_provenance_2009}  describes provenance as the origin and history of data from its lifecycle. Buneman et al \cite{buneman_why_2001} describes provenance from a database perspective as the origin of data and the steps in which it is derived in the database system. We formally define provenance as follows:  Data provenance of an entity is a comprehensive history of activities that occur on that entity from its creation to its present state.
+The Oxford English dictionary defines provenance as ``the place of origin or earliest
+known history of something" \cite{TCDP1999}. An example of provenance can be seen with a college transcript. A transcript is the provenance of a college degree because it outlines all of the
+courses satisfied in order to attain the degree. In the field of computing, data provenance, also known as data lineage, can be defined as the history of all activities performed on an entity from its creation to its current state.
+Cheney et al. \cite{cheney_provenance_2009}  describes provenance as the origin and history of data from its lifecycle. Buneman et al \cite{buneman_why_2001} describes provenance from a database perspective as the origin of data and the steps in which it is derived in the database system. We formally define data provenance of an entity as a comprehensive history of activities that occur on that entity from its creation to its present state.
 
 %\begin{definition}
 %Data provenance of an entity is a comprehensive history of activities that occur on that entity from its creation to its present state.
 %\end{definition}
 
-Provenance data is represented as an acyclic graph which denotes causal relationship and dependencies between entities. 
+Provenance is best represented as an acyclic graph which denotes causal relationships and dependencies between entities. 
 
  
  \subsubsection{Provenance Characteristics}
 
 \begin{itemize}
 
-\item Who: Provides information on activities made to an entity. Knowing the ``who" characteristic is essential because it maps the identity of modification to a particular data object. An example of ``who" in an IoT use case is a sensor device identifier.
+\item Who: Provides information linking activities to an entity. Knowing the ``who" characteristic is essential because it maps the identity of modification to a particular data object. An example of ``who" in an IoT use case is a sensor device identifier.
 
 \item Where: Location information at which data transformation was made. This provenance characteristic could be optional since not every data modification contains location details. An example is a GPS coordinate.
 
 \item When: The time at which data transformation occurred. This is an essential provenance characteristic. Being able to tell the time of a data transformation allows for tracing data irregularities. An example of this characteristic is a timestamp that denotes when sensor data was read.
 
-\item What: The transformation is applied on a data object. A use case for IoT can be seen in the various operations (create, read, update, and delete) that could be performed on a data object.
+\item What: The transformation applied. A use case for IoT can be seen in the various operations (create, read, update, and delete) that could be performed on a data object.
 
 \end{itemize}
 
-\subsubsection{Differentiating Provenance, Log data, and Metadata }
-
-Provenance has often been seen used interchangably to define log data, and metadata. While some overlap exists between the three, some differences exists. Log data contains information about the activities of an operating system or processes. Log data can be used as provenance because It contains data trace specific to an application domain. Log files might contain unrelated information such as error messages, warnings which might not be considered as provenance data. Provenance allows for specified collection of information that relates to the change of the internal state of an object. In summary, log data could provide insight to what provenance data to collect. On the other hand, metadata contains descriptive information about data. Metadata can be considered as provenance when there exists a relationship between objects and they explain the transformation that occurs. In summary,  metadata and provenance are not the same, however an overlap exists. Metadata contains valuable  provenance information but not all metadata is provenance information. 
 
 
-\subsection{Model for representing provenance for IoT}
+%\subsubsection{Differentiating Provenance, Log data, and Metadata }
+%
+%Provenance has been used interchangably to define log data, and metadata. While some overlap exists between the three, some differences exist. Log data contains information about the activities of an operating system or processes. Log data might be used as provenance if it contains data trace specific to an application domain. Log files usually contain information such as error messages and warnings that might not be considered as provenance data. On the other hand, metadata contains descriptive information about data. Metadata can be considered as provenance when there exists a relationship between objects and they explain the transformation that occurs. In summary,  metadata and provenance are not the same, however an overlap exists. Metadata contains valuable  provenance information but not all metadata is provenance information. 
 
-In order to represent provenance in an IoT architecture, we need to satisfy provenance characteristics (i.e who, where, when, and what of data transformations). 
-\par Provenance of sensor and actuator readings in an IoT device should outline the dependency relationship between all entities responsible for producing such readings . Provenance can be represented using a modeling language with ontological representations such as PROV-DM which is represented serialized in three format:  XML, JSON and RDF. This model displays data dependency between agents and entities. We propose an alignment to the PROV-DM which contains information such as sensor readings, device name, and device information and give a detailed description of the alignment with use cases. Details on the provenance-sensor data model alignment is discussed in section IV.
+
+\subsection{Model for Representing Provenance for IoT}
+
+%In order to represent provenance in an IoT architecture, we need to satisfy provenance characteristics (i.e who, where, when, and what of data transformations). 
+
+Provenance of sensor readings in an IoT device should outline the dependency relationship between all entities responsible for producing those readings. Provenance can be represented using a modeling language with ontological representations such as PROV-DM which is represented serialized in three formats:  XML, JSON and RDF. This model displays data dependency between agents and entities. 
+
+
+%We propose an alignment to the PROV-DM which contains information such as sensor readings, device name, and device information and give a detailed description of the alignment with use cases. Details on the provenance-sensor data model alignment is discussed in section IV.
 
 \subsubsection{Provenance Data Model (Prov-DM)}
 
-PROV-DM \cite{prov_dm} is a model that conforms to PROV Ontology (PROV-O), a W3C standard that is used to depict dependencies between entities, activities and agents (digital or physical). It creates a common model that allows for interchange of provenance information between heterogeneous devices. PROV-DM is a predecessor of the Open Provenance model (OPM),  a result of a meeting at the International Provenance and Annotation Workshop (IPAW) 2006.  OPM was created to address the need of allowing a centralized model for representing provenance data amongst various applications. PROV-DM contains two major components: types and relations. 
+PROV-DM \cite{prov_dm} is a model that conforms to PROV Ontology (PROV-O), a W3C standard used to depict dependencies between entities, activities and agents (digital or physical). PROV-DM creates a common model that allows for interchange of provenance information between heterogeneous devices. 
+
+\par PROV-DM contains two major components: types and relations.  Types can be entities, activities, or agents. An entity is a physical or digital object. An activity represents some form of action that occurs over a time frame.  An agent takes ownership of an entity, or performs an activity. 
+
+Figure \ref{prov_rep} illustrates the types contained in PROV-DM and their representation. Entities, activities and agents are represented by oval, rectangle and hexagonal shapes respectively. 
 
 
-Types:
-\begin{itemize}
-
-\item Entity: An entity is a physical or digital object. An example of an entity is a file system, a process, or an motor vehicle. An entity may be physical or abstract.
-
-\item Activity: An activity represents some form of action that occurs over a time frame. Actions are acted upon by an agent. An example of an activity is a process opening a file directory, Accessing a remote server.
-
-\item Agent: An agent is a thing that takes ownership of an entity, or performs an activity. An example of an agent is a person, a software product, or a process.
-\end{itemize}
-
-The figure below illustrates the various types contained in PROV-DM and their representation. Entities, activities and agents are represented by oval, rectangle and hexagonal shapes respectively.
 
 \begin{figure}[h!]
 \begin{center}
 
-\includegraphics[width=3.0in]{prov_dm_new.PNG}
+\includegraphics[width=3.0in]{prov_dm_2.PNG}
 \end{center}
-\caption{Prov-DM respresentation showing various types contained in the model (Entity, Activity, and Agent) }
+\caption{Prov-DM respresentation showing various types contained in the model (Entity, Activity, and Agent) and the relationships between them }
+\label{prov_rep}
 \end{figure}
 
 
-Relations:
+\par PROV-DM defines seven relationships between the types. These relationships are as follows
 
 \begin{itemize}
-\item wasGeneratedBy: Signifies the creation of an entity by an activity. 
+\item wasGeneratedBy:  Signifies the entity is completed by an activity
 
-\item used: Denotes that the functionality of an entity has been adopted by an activity.
+\item used: An entity has been adopted by an activity in which one of the activity uses entity generated by another activity.
 
-\item wasInformedBy: Denotes a causality that follows the exchange of two activities.
+\item wasInformedBy: The exchange of an entity by two activity in which one of the activity uses an entity generated by another activity.
 
 \item wasDerivedFrom: Represents a copy of information from an entity. 
 
 \item wasAttributedTo: Denotes relational dependency between an entity and an agent when the activity that created the agent is unknown.
 
-\item wasAssociatedWith: Denotes a direct association to an agent for an activity that occurs. This indicates that an agent plays a role in the creation or modification of the activity.
+\item wasAssociatedWith: An agent created or modified of the activity
 
-\item actedOnBehalfOf: Denotes assigning authority to perform a particular responsibility to an agent. 
+\item actedOnBehalfOf: Delegation of authority from an agent to itself or another agent to perform a particular responsibility. 
 
 
 
@@ -712,50 +704,42 @@ Relations:
 % footnotes above bottom floats. This can be corrected via the
 % \fnbelowfloat command of the stfloats package.
 
-\section{Related Work}
 
-There has been a considerable amount of work done on data provenance collection \cite{_general-purpose_2012, bates_trustworthy_2015, gessiou_towards_2012, muniswamy_reddy_provenance_2010}. Some of the work done has been focused on databases, sensor networks, scientific workflow systems and file system provenance but so far little attention has been given to provenance in IoT. 
 
-\par Muniswamy Reddy
-et al \cite{muniswamy_reddy} developed a provenance collection system that tracks  system-level provenance of the Linux file system. Provenance information
-is stored in the same location as the file system for easy accessibility, backup,
-restoration, and data management. Provenance information is collected and stored in
-the kernel space. PASS is composed of 3 major components: provenance collector, provenance storage,and provenance query. The collector keeps track of system level provenance. It intercepts system calls which are translated into provenance data and initially stored in memory as inode cache. Provenance data is then transferred to a file system in an kernel database, BerkleyDB. This database maps key value pairs for provenance data for fast index look up. Our approach looks at data provenance with data pruning as a key requirement since we are dealing with devices with limited memory and storage capabilities. We employ a policy based approach which allows provenance pruning by storing what provenance data is considered important to a specific organization. Also,unlike PASS, our system collects not just system level provenance but also application level provenance. 
+%
 
-\par Bates et al. \cite{hi_fi}  developed system level provenance collection framework for the Linux kernel using Linux Provenance Modules(LPM), this framework tracks system level provenance such as interprocess communication, networking, and kernel activities. This is achieved by mediating access to kernel objects using Linux Security Model(LSM) which is a framework that was designed for providing custom access control into the Linux kernel. It consists of a set of hooks which executed before access decision is made. LSM was designed to avoid problem created by direct system call interception. The provenance information collected from the kernel space is securely transmitted to the provenance recorder in the user space. HiFi contains three components: provenance collector, provenance log and provenance handler. The collector and log are contained in the kernel space while the handler is contained in the user space. The log is a storage medium which transmits the provenance data to the user space. The collector uses LSM which resides in the kernel space. The collector records provenance data and writes it to the provenance log. The handler reads the provenance record from the log. This approach to collecting provenance data differs from our work since we focus on embedded systems and are concerned with input and output (I/O) data, which involves sensor and actuator readings. Additionally,  HiFi deals with collecting system level events which might incur additional overhead when compared to collecting application level provenance. HiFi is engineered to work solely on the Linux operating system. Embedded systems that do not run on Linux OS will not be able to incorporate HiFi. 
 
-\par RecProv \cite{rec_prov} is a provenance system which records user-level provenance, avoiding the overhead incurred by kernel level provenance recording. It does not require changes to the kernel like most provenance monitoring systems. It uses Mozilla rr to perform deterministic record and replay by monitoring system calls  and non deterministic input. Mozilla rr is a debugging tool for Linux browser. It is developed for the deterministic recording and replaying of the Firefox browser in Linux. The provenance information generated is converted into PROV-JSON, and stored in Neo4j, a graph database for visualization and storage of provenance graphs. 
-
-\par Spillance et al \cite{story} developed a user space provenance collection system, Storybook, which allows for the collection of provenance data from the user space thereby reducing performance overhead from kernel space provenance collection. This system takes a modular approach that allows the use of application specific extensions allowing additions such as database provenance, system provenance, and web and email servers. It achieves provenance capture intercepting system level events on FUSE, a file system and MySQL , a relational database. StoryBook allows developers to implement provenance inspectors these are custom provenance models which captures the provenance of specific applications which are often modified by different application(e.g web servers, databases). When an operation is performed on a data object, the appropriate provenance model is triggered and provenance data for that data object is captured. StoryBook stores provenance information such as open, close, read or write, application specific provenance, and causality relationship between entities contained in the provenance system. Provenance data is stored in key value pairs using Stasis and Berkely DB as the storage backend. It also allows the use of interoperable data specifications such as RDF to transfer data between various applications. Storybook allows for provenance query by looking up an inode in the ino hashtable. Collecting application level and kernel level events is similar to our approach of provenance collection, however, our approach integrates the use of a policy to eliminate noisy provenance data thereby allowing only relevant provenance to be stored.
-
-\par Lim et al. \cite{lim} developed a
-model for calculating the trust of nodes contained in a sensor network by using data
-provenance and data similarity as deciding factors to calculate trust. The value of
-provenance signifies that the more similar a data value is, the higher the trust score.
-Also, the more the provenance of similar values differ, the higher their trust score. The trust score of a system is affected by the trust score of the sensor that forwards data to the system. Provenance is determined by the path in which data travels through the sensor network. This work differs from our approach since the authors focus on creating a trust score
-of nodes connected in a sensor network using data provenance and do not emphasize
-how the provenance data is collected. We are focused on creating a
-provenance aware system for sensor-actuator I/O operations which may be used to ensure trust of
-connected devices. 
 
 \section {Prov-Sensor Model Alignment}
-In this section, we describe the sensor-provenance model alignment, we discuss how sensor and actuator readings are converted to provenance using provenance ontological constructs.
+In this section, we introduce the sensor-provenance model mapping and explain how to use an ontology to convert sensor and actuator readings to provenance.
 
-\par Sensor data contains observation information such as temperature, location details which can be represented in various standardized data interchange formats (RDF, XML, JSON e.t.c). For our implementation, sensor data is generated in CTF format. Further information on CTF is described in section V. Trace data containing sensor-actuator readings are important components but do not depict dependency relationship when used alone. Trace data is transformed to provenance to depict relationship between entities contained in an IoT system. Provenance Ontology and sensor data can be further aligned for better representation of dependency relationships between sensor data.
+\par Sensor data contains observation information such as temperature, location details which can be transformed to various standardized data interchange formats (RDF, XML, JSON e.t.c). Trace data containing sensor-actuator readings are important components but do not depict dependency relationship when used alone. Trace data is transformed to provenance to represent causality and dependencies relationships between entities contained in an IoT system. Provenance Ontology and sensor data can be further aligned for better representation of dependency relationships between sensor data.
 
-\par A single sensor has the capability of collecting multiple trace data, $t_d$. A combination of trace data is regraded as an event. An example of events are temperature, location, humidity information e.t.c. We define an event  for sensor $s_1$ as $e= \{td_1, ...td_n\} $ where $td_1$ is the first trace data collected by $s_1$  and $td_n$ is the last trace data contained collected by the sensor. \\ \\ $[sensor, actuator, device] \in \{prov:agent\}$  \\ $[datapoint] \in \{prov:entity\} $ \\
+\par A single sensor might have the capability of collecting multiple trace data, $td$. For example, a sensor might be able to collect sensor readings of temperature, location, humidity. $td$ at time $t_1$ can be defined as $td = \{ x_1, y_1, z_1 \}$ where $x_1, y_1, z_1$ are distinct sensor readings contained in the sensor at time $t_1$. A combination of trace data at a particular point in time is considered an event. We define an event  for sensor $s_1$ as $e= \{td_1, ...td_n\} $ where $td_1$ is the first trace data collected by $s_1$  and $td_n$ is the last. \\ \\ $[sensor, actuator, device] \in \{prov:agent\}$  \\ $[datapoint] \in \{prov:entity\} $ \\
 
-\par Using the PROV-O, in an IoT system containing multiple sensors, device and sensors information are represented as agents (prov:agents), the operation performed on sensor-actuator data (read, create, update) represents provenance activity (prov:activity). Events are represented as an entities (prov:entity). Each sensor-actuator data generated is represented as a tuple  $ <t, e, s_1, r_1>$ where $t$ represents a timestamp, $e$ represents an event in which trace data is collected, $s_1$ represents sensor information and $r_1$ represents device information. 
+
+
+\par Using the Provenance Ontology, in an IoT system containing multiple sensors, device and sensor information, we represent device information as agents (prov:agents), we represent the operation performed on sensor-actuator readings (read, create, update) as a provenance activity (prov:activity). Events are represented as entities (prov:entity). We represent sensor trace as a tuple  $ (t, e, a, s_1, r_1)$ where $t$ represents a timestamp, $e$ represents an event in which trace data is collected, $a$ represents the action performed on sensor readings, $s_1$ represents sensor specific information such as sensor name, sensor version and $r_1$ represents device information such as device name, device version, and time of last update.
+
+
+
+
 
 
 \subsubsection{Example} 
 
-Consider a humidity and temperature sensor $s_1$, connected to device $r_1$, a raspberry pi. Event, $e$, can be defined as $e= \{temperature, humidity\}$ therefore the tuple representation of trace data for raspberry pi $r_1$ with sensor $s_1$ is represented as $<t, \{temperature, humidity\}, s_1, r_1>$. Each trace data generated is mapped to the PROV-O representation using the defined constructs specified above. Figure \ref{prov_sensor} further illustrates the concept of Prov-Sensor alignment using a graphical representation which contains a device connected to three sensors $s_1, s_2, and s_3$ with events  [$e_1, e_2,...,e_n$]. 
+Consider a humidity and temperature sensor $s_1$, connected to device $r_1$, a Raspberry Pi. Event, $e$, can be defined as $e= \{temperature, humidity\}$ therefore the tuple representation of trace data for Raspberry Pi $r_1$ with sensor $s_1$ taken at time $t_1$ can also be defined as $(t, \{temperature, humidity\}, a,  s_1, r_1)$. Each tuple is mapped to the Provenance Ontology representation using the defined constructs in section IV. For each tuple,  $s_1$, and $r_1$ are represented as entities as (prov:entity), $a$ is represented as (prov:activity), and the $e$ is represented as (prov:entities).  Provenance is represented as a directed acyclic graph and the edge between two entities is considered a relation. Relations between the entities follows the Provenance Ontological convention which depicts transformation between entities. For example since $s_1$ is contained in device $r_1$, $r_1$ forms an edge with $s_1$ with the used relation. (e.g $r_1$ used $s_1$).
 
 
-Data is generated by three identical temperature sensors, $s_1, s_2$ and $s_3$. All sensors generate data in real-time. Trace data generated from devices are aligned with PROV-O. The graph depicts data dependency between the raspberry pi $r_1$, the three sensors, the activity performed by the sensors (the sensors create data in this case) and the events.  Each event makes an edge with the preceding event. Edges between events are denoted with a dotted arrow . This represents time dependency between events.  We define the graph of all of the events as follows: \\ For graph  G= (V, E):   \\ $V = \{ e_1, ...e_n \} \\  E = \{ (e_i,e_{i+1}): e_i, e_{i+1} \in V, e_1 \neq e_{i+1}\}  $ \\ 
-   
- 
+
+
+
+Figure \ref{prov_sensor} further illustrates the concept of Prov-Sensor alignment using a graphical representation which contains a device connected to three sensors $s_1, s_2$, and $s_3$ with events  [$e_1, e_2,...,e_n$]. Data is generated by three identical temperature sensors, $s_1, s_2$ and $s_3$. Trace data generated from devices are aligned with Provenance Ontology. The graph depicts data dependency between $r_1$, the three sensors, the activity performed by the sensors (the sensors create data in this case) and the events.  Each event makes an edge with the preceding event. Edges between events are denoted with a dotted arrow . This represents time dependency between events. The  graph of all of the events is:
+
+% \\ For graph  G= (V, E):   \\ $V = \{ e_1, ...e_n \} \\  E = \{ (e_i,e_{i+1}): e_i, e_{i+1} \in V, e_1 \neq e_{i+1}\}  $ \\ 
+
+
+\( \\ G = (V, E) \\ V =  { e_1, ...e_n } \\ E = { (e_i,e_{i+1}): e_i, e_{i+1} \in V, e_1 \neq e_{i+1}} \)
 
 \begin{figure}[h!]
 \begin{center}
@@ -769,8 +753,13 @@ Data is generated by three identical temperature sensors, $s_1, s_2$ and $s_3$. 
 \SetKwProg{Fn}{Function}{}{}
 
 
+\subsection{Algorithm Description}
+
+In Algorithm \ref{Prov_sensor_alg}, $F$  represents the  file object containing tuples $x$. For each tuples contained in F, $s, d$ representing sensor info, and device info respectively are generated as agents. $e$ is created as events. For each event, an enumeration of sensor readings is returned, $a$ is generated as an activity. p is a memory representation of the provenance document containing all of the components (agents, activity, and entities).
+
 \begin{algorithm}[h!]
 \caption{Prov-Sensor Alignment}
+\label{Prov_sensor_alg}
 \Fn{trace2Prov (F)}{
 
  p $\leftarrow$ createProvDocument() \\
@@ -788,7 +777,7 @@ s $\leftarrow$ createAgent() \\
  
  e $\leftarrow$ createEntity()  \\
 
- c $\leftarrow$ createActivity() \\
+ a $\leftarrow$ createActivity() \\
  
  
  
@@ -818,17 +807,19 @@ z $\leftarrow$ relateEntityToActivity()  \\
 \end{algorithm}
 
 
-\section{Provenance-Aware System Implementation}
-In this section, we outline components the provenance collection system and describe how provenance trace is collected across the IoT system. Figure \ref{architecture} displays the system architecture of our approach. Sensor and actuator readings in the form of input and output (I/O) events are recorded by the tracer component. This component intercepts system level I/O events and produces trace information represented in Common Trace Format (CTF). 
+
+
+\section{PAITS System Implementation}
+In this section, we outline  PAITS a trace-based provenance collection system for IoT devices. Figure \ref{architecture} displays the system architecture. Sensor and actuator readings in the form of input and output (I/O) events are recorded by the tracer component. This component intercepts I/O and produces trace information represented in Common Trace Format (CTF). 
 
 %CTF encodes binary trace output information containing multiple streams of binary events such as I/O activity.
 
-CTF Trace information is converted to provenance data in the PROV-DM IoT model and serialized to PROV-JSON. CTF conversion to PROV-DM is achieved using babeltrace. This conversion can happen at any layer of the IoT stack. Babeltrace is a plugin framework which allows the conversion of CTF traces into other formats. Trace or provenance data is securely transmitted to a gateway and later transmitted and stored in a cloud backend. Our backend of choice is Neo4j, a graph database for efficient storage, query and visualization of provenance data. CTF contains a mandatory stream known as metadata. Metadata contains information of other streams. It allows to parse a stream without specifying a layout.
+PAITS converts CTF trace data to provenance in the PROV-DM IoT Model, which is described in Section IV. CTF conversion to PROV-DM is done using babeltrace. This conversion can happen at any layer of the IoT stack. Babeltrace is a plugin framework which allows the conversion of CTF traces into other formats. Trace or provenance data is securely transmitted to a gateway and later transmitted and stored in a cloud backend. Our backend of choice is Neo4j, a graph database with support for efficient storage, query and visualization of provenance data. CTF contains a mandatory stream known as metadata. Metadata contains information about other streams. It allows to parse a stream without specifying a layout.
 
 
 
 \subsubsection{Common Trace Format (CTF) }
-CTF allows traces to be generated by C/C++ applications. It encodes binary trace output information containing multiple streams of binary events such as I/O activity.  CTF is composed of multiple streams of events. Each event can be broken into as multiple streams. Streams allows for fast processing since they do not have to be stored in disk before  being sent over a network or processed in memory.
+CTF encodes binary trace output information containing multiple streams of binary events such as I/O activity.  CTF is composed of streams of events. Each event can be broken into as streams. Streams allow for fast processing since they do not have to be stored in disk before  being sent over a network or processed in memory.
 
 
 
@@ -839,26 +830,26 @@ CTF allows traces to be generated by C/C++ applications. It encodes binary trace
 
 \includegraphics[width =3.0in]{system_architecture.PNG}    
 \end{center}
-\caption{System Architecture for Provenance Collection.}
+\caption{System Architecture for PAITS.}
 \label{architecture}
 \end{figure}
 
-Our goal is to create a provenance-aware system which records I/O operations on data for devices connected in an IoT system. For our implementation, several tools and hardware components are utilized in the development of our prototype, outlined below:
+Our goal is to create a provenance collection system which records I/O operations on data for devices connected in IoT. For our implementation, several tools and hardware components are used in the development of our prototype:
 
 \begin{itemize}
-\item Raspberry Pi the microcontroller used to evaluate our approach. We choose Raspberry Pi because it is a representation of what can be found on an IoT gateway device and it has the capability to include custom hardware in programmable logic. Also, Raspberry Pi is a low cost, simple IoT demonstrator that was chosen for its high performance, on­board emulation, and IoT gateway projects can be programmed without additional need for hardware tools.
+\item Raspberry Pi is the microcontroller used to evaluate our approach. We chose Raspberry Pi because it is a representation of what can be found on an IoT gateway device. Raspberry Pi is a low cost, simple IoT demonstrator.
 
 %\item Real Time Executive for Multiprocessor Systems (RTEMS) is an open source real­time operating system (RTOS) for embedded systems. This operating system is a typical RTOS that may be deployed in IoT devices.
 
-\item Neo4j \footnote{https://neo4j.com/product/}, a graph database which allows optimized querying of graph data. Since provenance represents causal dependencies, it is ideal to use a graph database to store the relationships between objects
+\item Neo4j \footnote{https://neo4j.com/product/} is a graph database which allows optimized querying of graph data such as provenance.
 
 %\item lttng, a software tool for collecting system level trace on Linux system. 
 
-\item Babeltrace\footnote{http://diamon.org/babeltrace/}:  This is a trace converter tool for barectf. It contains plugins used to convert traces from one format into another (e.g CTF to other formats). 
+\item Babeltrace\footnote{http://diamon.org/babeltrace/} is a trace converter tool to convert traces from one format into another. 
 
-\item barectf\footnote{https://github.com/efficios/barectf}: This is a light weight  command line generator of C tracers used to  generate bare metal application trace. Trace data collected is generated in CTF.
+\item barectf\footnote{https://github.com/efficios/barectf} is a light weight generator of C code for  that collect data in CTF. 
 
-\item yaml generator: A yaml generator is contained in a barectf. It creates yaml files. It contains configuration file contains information on what barectf application needs in order to generate CTF trace output. This consist of configuration settings such as an application trace stream, packet type, payload type and size. 
+\item  A yaml generator in barectf creates yaml  configuration files with information barectf needs to generate CTF trace output. Configuration  files contain settings such as an application trace stream, packet type, payload type and size. 
 
 %\item rasberrypi
 
@@ -881,14 +872,37 @@ Our goal is to create a provenance-aware system which records I/O operations on 
 %
 %TODO...
 
+\section{Related Work}
 
-\section{Conclusion}
+Muniswamy-Reddy
+et al. \cite{muniswamy_reddy} developed Provenance Aware Storage System (PASS), a provenance collection system that tracks  system-level provenance of the Linux file system. Provenance information
+is stored in the same location as the file system for easy accessibility, backup,
+restoration, and data management. Provenance information is collected and stored in
+the kernel space. PASS is composed of 3 major components: provenance collector, provenance storage, and provenance query. The collector keeps track of system level provenance. It intercepts system calls which are translated into provenance data and initially stored in memory. Provenance data is then transferred to a file system in an kernel database, BerkleyDB which maps key value pairs for provenance data for fast index look up. Our approach looks at not just system level provenance but also application level provenance. 
+
+\par Bates et al. \cite{hi_fi}  developed, HiFi,a system level provenance collection framework for the Linux kernel using Linux Provenance Modules (LPM), which utilizes Linux Security Modules (LSM). LSM is a framework that was designed for providing custom access control inside the Linux kernel. HiFi contains three components: provenance collector, provenance log and provenance handler. The collector and log are contained in the kernel space while the handler is contained in the user space. The collector uses LSM to record provenance data and writes it to the provenance log. The handler reads the provenance record from the log. The log is a storage medium which transmits the provenance data to the user space. This approach to collecting provenance data differs from our work since we focus on memory constrained embedded systems which might not contain an operating system or a file system.
+
+% Additionally,  HiFi deals with collecting system level events which might incur additional overhead when compared to collecting application level provenance. HiFi is engineered to work solely on the Linux operating system. Embedded systems that do not run on Linux OS will not be able to incorporate HiFi. 
+
+\par RecProv \cite{rec_prov} is a provenance system which records user-level provenance, avoiding the overhead incurred by kernel level provenance recording. It does not require changes to the kernel like most provenance monitoring systems. It uses Mozilla rr to perform deterministic record and replay by monitoring system calls  and non deterministic input. The provenance information generated is converted into PROV-JSON, and stored in Neo4j, a graph database for visualization and storage of provenance graphs. 
+
+
+
+\par Spillance et al. \cite{story} developed a user space provenance collection system, Storybook that allows the use of application specific extensions such as database provenance, system level provenance, and web and email servers. Storybook captures provenance by intercepting system level events in the FUSE file system and storing in MySQL. StoryBook allows developers to implement provenance inspectors custom provenance models for specific applications which are often modified by different application (e.g web servers, databases). When an operation is performed on a data object, the appropriate provenance model is triggered and provenance data for that data object is captured. StoryBook stores provenance information such as open, close, read or write, application specific provenance, and causality relationship between entities contained in the provenance system. Provenance data is stored in key value pairs using Stasis and Berkely DB. 
+
+
+%Collecting application level and kernel level events is similar to our approach of provenance collection, but 
+
+\par Lim et al. \cite{lim} developed a
+model for calculating the trust of nodes in a sensor network by using data
+provenance and data similarity as deciding factors to calculate trust. The value of
+provenance signifies that the more similar a data value is, the higher the trust score.
+Also, the more the provenance of similar values differ, the higher their trust score. The trust score of a system is affected by the trust score of the sensor that forwards data to the system. Provenance is determined by the path data travels through the sensor network. This work differs from our approach since the authors focus on creating a trust score and do not emphasize
+how the provenance data is collected. 
+
+\section{Conclusion and Future Work}
 In this paper, we motivate the need for integrating provenance into the IoT system. 
-We propose a provenance collection framework that provides provenance collection capabilities for devices in an IoT system. 
-
-\section{Future Work}
-
-Some of the proposed future work are outlined below:
+We propose PAITS, a provenance collection framework that provides provenance collection capabilities for devices in an IoT system. Some of the proposed future work are outlined below:
 \begin{itemize}
 
 \item Provenance collection raises privacy issues. How do we ensure that the vast amount of data collected is not invasive to privacy.

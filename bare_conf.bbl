@@ -21,6 +21,12 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{dave}
+D.~Evans, ``The internet of things how the next evolution of the internet is
+  changing everything,''
+  \url{https://www.cisco.com/c/dam/en_us/about/ac79/docs/innov/IoT_IBSG_0411FINAL.pdf},
+  Apr 2011, accessed: 2016-10-01.
+
 \bibitem{rapid7}
 M.~Stanislav, ``Hacking iot: A case study on baby monitor exposures and
   vulnerabilities,''
@@ -77,42 +83,6 @@ P.~Buneman, S.~Khanna, and T.~Wang-Chiew, ``\BIBforeignlanguage{en}{Why and
 ``{PROV}-{DM}: {The} {PROV} {Data} {Model},''
   \url{https://www.w3.org/TR/prov-dm/}, accessed: 2016-10-01. [Online].
   Available: \url{https://www.w3.org/TR/prov-dm/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{_general-purpose_2012}
-\BIBentryALTinterwordspacing
-P.~Macko and M.~Seltzer, ``A general-purpose provenance library,'' in
-  \emph{Proceedings of the 4th USENIX Conference on Theory and Practice of
-  Provenance}, ser. TaPP'12.\hskip 1em plus 0.5em minus 0.4em\relax Berkeley,
-  CA, USA: USENIX Association, 2012, pp. 6--6. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=2342875.2342881}
-\BIBentrySTDinterwordspacing
-
-\bibitem{bates_trustworthy_2015}
-A.~Bates, D.~J. Tian, K.~R. Butler, and T.~Moyer, ``Trustworthy whole-system
-  provenance for the linux kernel,'' in \emph{24th USENIX Security Symposium
-  (USENIX Security 15)}, 2015, pp. 319--334.
-
-\bibitem{gessiou_towards_2012}
-\BIBentryALTinterwordspacing
-E.~Gessiou, V.~Pappas, E.~Athanasopoulos, A.~D. Keromytis, and S.~Ioannidis,
-  ``\BIBforeignlanguage{en}{Towards a {Universal} {Data} {Provenance}
-  {Framework} {Using} {Dynamic} {Instrumentation}},'' in
-  \emph{\BIBforeignlanguage{en}{Information {Security} and {Privacy}
-  {Research}}}, ser. {IFIP} {Advances} in {Information} and {Communication}
-  {Technology}, D.~Gritzalis, S.~Furnell, and M.~Theoharidou, Eds.\hskip 1em
-  plus 0.5em minus 0.4em\relax Springer Berlin Heidelberg, Jun. 2012, no. 376,
-  pp. 103--114, dOI: 10.1007/978-3-642-30436-1\_9. [Online]. Available:
-  \url{http://link.springer.com/chapter/10.1007/978-3-642-30436-1_9}
-\BIBentrySTDinterwordspacing
-
-\bibitem{muniswamy_reddy_provenance_2010}
-\BIBentryALTinterwordspacing
-K.-K. Muniswamy-Reddy, P.~Macko, and M.~Seltzer, ``Provenance for the
-  {Cloud},'' in \emph{Proceedings of the 8th {USENIX} {Conference} on {File}
-  and {Storage} {Technologies}}, ser. {FAST}'10.\hskip 1em plus 0.5em minus
-  0.4em\relax Berkeley, CA, USA: USENIX Association, 2010, pp. 15--14.
-  [Online]. Available: \url{http://dl.acm.org/citation.cfm?id=1855511.1855526}
 \BIBentrySTDinterwordspacing
 
 \bibitem{muniswamy_reddy}
