@@ -755,7 +755,7 @@ Figure \ref{prov_sensor} further illustrates the concept of Prov-Sensor alignmen
 
 \subsection{Algorithm Description}
 
-In Algorithm \ref{Prov_sensor_alg}, $F$  represents the  file object containing tuples $x$. For each tuples contained in F, $s, d$ representing sensor info, and device info respectively are generated as agents. $e$ is created as events. For each event, an enumeration of sensor readings is returned, $a$ is generated as an activity. p is a memory representation of the provenance document containing all of the components (agents, activity, and entities).
+In Algorithm \ref{Prov_sensor_alg}, $F$  represents the  file object containing tuples $x$. For each tuples contained in F, $s, d$ represents sensor and device information respectively and are generated as agents. $e$ is generated as events, $a$ is generated as an activity. p is a memory representation of the provenance document containing all  provenance types and their relations.
 
 \begin{algorithm}[h!]
 \caption{Prov-Sensor Alignment}
@@ -841,13 +841,13 @@ Our goal is to create a provenance collection system which records I/O operation
 
 %\item Real Time Executive for Multiprocessor Systems (RTEMS) is an open source real­time operating system (RTOS) for embedded systems. This operating system is a typical RTOS that may be deployed in IoT devices.
 
-\item Neo4j \footnote{https://neo4j.com/product/} is a graph database which allows optimized querying of graph data such as provenance.
+\item Neo4j is a graph database which allows optimized querying of graph data such as provenance.
 
 %\item lttng, a software tool for collecting system level trace on Linux system. 
 
-\item Babeltrace\footnote{http://diamon.org/babeltrace/} is a trace converter tool to convert traces from one format into another. 
+\item Babeltrace is a trace converter tool to convert traces from one format into another. 
 
-\item barectf\footnote{https://github.com/efficios/barectf} is a light weight generator of C code for  that collect data in CTF. 
+\item barectf is a light weight generator of C code for  that collect data in CTF. 
 
 \item  A yaml generator in barectf creates yaml  configuration files with information barectf needs to generate CTF trace output. Configuration  files contain settings such as an application trace stream, packet type, payload type and size. 
 
