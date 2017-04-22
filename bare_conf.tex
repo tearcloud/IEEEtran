@@ -337,7 +337,7 @@
 % Do not put math or special symbols in the title.
 %\title{Towards a Provenance-Aware Internet of Things (IoT) System}
 
-\title{PAITS: A Provenance Collection Framework for Internet of Things (IoT) Devices }
+\title{PAIoTS: A Provenance Collection Framework for Internet of Things (IoT) Devices }
 
 
 % author names and affiliations
@@ -422,7 +422,7 @@ from the time it was created to its current state. Data provenance has been
 explored in the areas of scientific computing, business, forensic analysis, and
 intrusion detection. Data provenance can help in detecting and mitigating
 malicious cyber attacks. In this paper, we explore the integration of provenance within the IoT.
-We introduce PAITS, a  provenance collection framework for IoT devices. We evaluate the effectiveness
+We introduce Provenance Aware Internet of Things System (PAIoTS), a  provenance collection framework for IoT devices. We evaluate the effectiveness
 of our framework by looking at an application of provenance data by developing a prototype system for proof of concept.
 \end{abstract}
 
@@ -449,10 +449,10 @@ The Internet of Things (IoT) is transforming commercial and industrial informati
 
 \par Due to the heterogeneity of devices and the level of uncertainty in deployments devices in IoT, trust is a critical step to ensuring the security of IoT devices. This can be achieved through data Provenance. Data provenance is a comprehensive history of activities that occurred on an entity from its origin to its current state. Provenance ensures confidence in the accuracy of data in an IoT system. Provenance has been applied in domains such as scientific workflow for experiment reproducibility, information security as a form of access control and also for intrusion detection in mitigating malicious adversaries. For IoT devices (things) that produce lots of sensor-actuator data, a workflow representation of how sensor data is generated can depict dependency between sensor readings and information in the device. 
 
-\par In this paper, we propose PAITS, a provenance collection framework for IoT systems, in which provenance data is collected and modeled to represent dependencies between sensor-actuator readings and the entities in an IoT system. Most of the interconnected heterogeneous devices (things) are embedded systems which require a lightweight and efficient solution as compared to general purpose
+\par In this paper, we propose PAIoTS, a provenance collection framework for IoT devices, in which provenance data is collected and modeled to represent dependencies between sensor-actuator readings and the entities in an IoT system. Most of the interconnected heterogeneous devices (things) are embedded systems which require a lightweight and efficient solution as compared to general purpose
 systems. This requirement is attributed to the constrained memory and computing power of such. We also propose a provenance sensor model alignment which provides a direct correlation of sensor readings to provenance data.
 
-\par The rest of the paper is organized as follows. In section II, we discuss background information on IoT and data provenance, we also motivate the need to incorporate provenance with IoT  by using a use case scenario. In section III, we discuss how provenance model and sensor data are aligned. In section IV, we discuss implementation details for PAITS. In section V, we discuss related works. Finally, in section V, we conclude with future research directions.
+\par The rest of the paper is organized as follows. In section II, we discuss background information on IoT and data provenance, we also motivate the need to incorporate provenance with IoT. In section III, we discuss how provenance model and sensor data can be aligned. In section IV, we discuss implementation details for PAIoTS. In section V, we discuss related works. Finally, in section V, we conclude with future research directions.
 
 
 \section{Background} 
@@ -809,12 +809,12 @@ z $\leftarrow$ relateEntityToActivity()  \\
 
 
 
-\section{PAITS System Implementation}
-In this section, we outline  PAITS a trace-based provenance collection system for IoT devices. Figure \ref{architecture} displays the system architecture. Sensor and actuator readings in the form of input and output (I/O) events are recorded by the tracer component. This component intercepts I/O and produces trace information represented in Common Trace Format (CTF). 
+\section{PAIoTS System Implementation}
+In this section, we outline  PAIoTS a trace-based provenance collection system for IoT devices. Figure \ref{architecture} displays the system architecture. Sensor and actuator readings in the form of input and output (I/O) events are recorded by the tracer component. This component intercepts I/O and produces trace information represented in Common Trace Format (CTF). 
 
 %CTF encodes binary trace output information containing multiple streams of binary events such as I/O activity.
 
-PAITS converts CTF trace data to provenance in the PROV-DM IoT Model, which is described in Section IV. CTF conversion to PROV-DM is done using babeltrace. This conversion can happen at any layer of the IoT stack. Babeltrace is a plugin framework which allows the conversion of CTF traces into other formats. Trace or provenance data is securely transmitted to a gateway and later transmitted and stored in a cloud backend. Our backend of choice is Neo4j, a graph database with support for efficient storage, query and visualization of provenance data. CTF contains a mandatory stream known as metadata. Metadata contains information about other streams. It allows to parse a stream without specifying a layout.
+PAIoTS converts CTF trace data to provenance in the PROV-DM IoT Model, which is described in Section IV. CTF conversion to PROV-DM is done using babeltrace. This conversion can happen at any layer of the IoT stack. Babeltrace is a plugin framework which allows the conversion of CTF traces into other formats. Trace or provenance data is securely transmitted to a gateway and later transmitted and stored in a cloud backend. Our backend of choice is Neo4j, a graph database with support for efficient storage, query and visualization of provenance data. CTF contains a mandatory stream known as metadata. Metadata contains information about other streams. It allows to parse a stream without specifying a layout.
 
 
 
@@ -830,7 +830,7 @@ CTF encodes binary trace output information containing multiple streams of binar
 
 \includegraphics[width =3.0in]{system_architecture.PNG}    
 \end{center}
-\caption{System Architecture for PAITS.}
+\caption{System Architecture for PAIoTS.}
 \label{architecture}
 \end{figure}
 
@@ -902,7 +902,7 @@ how the provenance data is collected.
 
 \section{Conclusion and Future Work}
 In this paper, we motivate the need for integrating provenance into the IoT system. 
-We propose PAITS, a provenance collection framework that provides provenance collection capabilities for devices in an IoT system. Some of the proposed future work are outlined below:
+We propose PAIoTS, a provenance collection framework that provides provenance collection capabilities for devices in an IoT system. Some of the proposed future work are outlined below:
 \begin{itemize}
 
 \item Provenance collection raises privacy issues. How do we ensure that the vast amount of data collected is not invasive to privacy.
