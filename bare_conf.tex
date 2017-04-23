@@ -569,7 +569,7 @@ Provenance of sensor readings in an IoT device should outline the dependency rel
 
 \subsubsection{Provenance Data Model (Prov-DM)}
 
-PROV-DM \cite{prov_dm} is a model that conforms to PROV Ontology (PROV-O), a W3C standard used to depict dependencies between entities, activities and agents (digital or physical). PROV-DM creates a common model that allows for interchange of provenance information between heterogeneous devices. 
+PROV-DM \cite{prov_dm} is a model that conforms to Provenance Ontology, a W3C standard used to depict dependencies between entities, activities and agents (digital or physical). PROV-DM creates a common model that allows for interchange of provenance information between heterogeneous devices. 
 
 \par PROV-DM contains two major components: types and relations.  Types can be entities, activities, or agents. An entity is a physical or digital object. An activity represents some form of action that occurs over a time frame.  An agent takes ownership of an entity, or performs an activity. 
 
@@ -711,7 +711,7 @@ Figure \ref{prov_rep} illustrates the types contained in PROV-DM and their repre
 
 
 \section {Prov-Sensor Model Alignment}
-In this section, we introduce the Sensor-Provenance model mapping and explain how to use provenance ontology to convert sensor and actuator readings to provenance.
+In this section, we introduce the Sensor-Provenance model mapping and explain how to use Provenance Ontology (PROV-O) to convert sensor and actuator readings to provenance.
 
 \par Sensor data contains observation information such as temperature, location details which can be transformed to various standardized data interchange formats (RDF, XML, JSON e.t.c). Trace data containing sensor-actuator readings are important components but do not depict dependency relationship when used alone. Trace data is transformed to provenance to represent causality and dependencies relationships between entities contained in an IoT system. Provenance Ontology and sensor data can be further aligned for better representation of dependency relationships between sensor data.
 
@@ -884,7 +884,7 @@ the kernel space. PASS is composed of 3 major components: provenance collector, 
 
 % Additionally,  HiFi deals with collecting system level events which might incur additional overhead when compared to collecting application level provenance. HiFi is engineered to work solely on the Linux operating system. Embedded systems that do not run on Linux OS will not be able to incorporate HiFi. 
 
-\par RecProv \cite{rec_prov} is a provenance system which records user-level provenance, avoiding the overhead incurred by kernel level provenance recording. It does not require changes to the kernel like most provenance monitoring systems. It uses Mozilla rr to perform deterministic record and replay by monitoring system calls  and non deterministic input. The provenance information generated is converted into PROV-JSON, and stored in Neo4j, a graph database for visualization and storage of provenance graphs. In PAIoT, we convert trace data to provenance and also use Neo4j for storage and visualization of the provenance data however, our approach focuses on the relationship between entities in a device with limited computation and memory capabilities and also transformations of sensor data these devices.
+\par RecProv \cite{rec_prov} is a provenance system which records user-level provenance, avoiding the overhead incurred by kernel level provenance recording. It does not require changes to the kernel like most provenance monitoring systems. It uses Mozilla rr to perform deterministic record and replay by monitoring system calls  and non deterministic input. The provenance information generated is converted into PROV-JSON, and stored in Neo4j, a graph database for visualization and storage of provenance graphs. In PAIoT, we convert trace data to provenance and also use Neo4j for storage and visualization of the provenance data however, our approach focuses on the relationship between entities in a device with limited computation and memory capabilities and also transformations of sensor data in these devices.
 
 
 
