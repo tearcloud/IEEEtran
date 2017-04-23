@@ -337,7 +337,7 @@
 % Do not put math or special symbols in the title.
 %\title{Towards a Provenance-Aware Internet of Things (IoT) System}
 
-\title{PAIoTS: A Provenance Collection Framework for Internet of Things (IoT) Devices }
+\title{PAIoTS: A Provenance Collection Framework for Internet of Things Devices }
 
 
 % author names and affiliations
@@ -450,7 +450,7 @@ The Internet of Things (IoT) is transforming commercial and industrial informati
 \par Due to the heterogeneity of devices and the level of uncertainty in deployments devices in IoT, trust is a critical step to ensuring the security of IoT devices. This can be achieved through data Provenance. Data provenance is a comprehensive history of activities that occurred on an entity from its origin to its current state. Provenance ensures confidence in the accuracy of data in an IoT system. Provenance has been applied in domains such as scientific workflow for experiment reproducibility, information security as a form of access control and also for intrusion detection in mitigating malicious adversaries. For IoT devices (things) that produce lots of sensor-actuator data, a workflow representation of how sensor data is generated can depict dependency between sensor readings and information in the device. 
 
 \par In this paper, we propose PAIoTS, a provenance collection framework for IoT devices, in which provenance data is collected and modeled to represent dependencies between sensor-actuator readings and the entities in an IoT system. Most of the interconnected heterogeneous devices (things) are embedded systems which require a lightweight and efficient solution as compared to general purpose
-systems. This requirement is attributed to the constrained memory and computing power of such. We also propose a provenance sensor model alignment which provides a direct correlation of sensor readings to provenance data.
+systems. This requirement is attributed to the constrained memory and computing power of such. We also propose a provenance sensor model mapping which provides a direct correlation of sensor readings to provenance data.
 
 \par The rest of the paper is organized as follows. In section II, we discuss background information on IoT and data provenance, we also motivate the need to incorporate provenance with IoT. In section III, we discuss how provenance model and sensor data can be aligned. In section IV, we discuss implementation details for PAIoTS. In section V, we discuss related works. Finally, in section V, we conclude with future research directions.
 
@@ -506,7 +506,7 @@ actuator layer having the least.
 \subsection{Provenance-Aware IoT Device Use Case}
 
 Creating a provenance-aware system is beneficial to IoT because it
-ensures the trust and integrity of interconn ected devices. Enabling provenance collection in IoT devices allows these devices to capture valuable information which enables backtracking in an event of a malicious attack. 
+ensures the trust and integrity of interconnected devices. Enabling provenance collection in IoT devices allows these devices to capture valuable information which enables backtracking in an event of a malicious attack. 
 
 
 \begin{figure}[h!]
@@ -710,12 +710,14 @@ Figure \ref{prov_rep} illustrates the types contained in PROV-DM and their repre
 
 
 
-\section {Prov-Sensor Model Alignment}
-In this section, we introduce the sensor-provenance model mapping and explain how to use an ontology to convert sensor and actuator readings to provenance.
+\section {Prov-Sensor Model Mapping}
+In this section, we introduce the sensor-provenance model mapping and explain how to use provenance ontology to convert sensor and actuator readings to provenance.
 
 \par Sensor data contains observation information such as temperature, location details which can be transformed to various standardized data interchange formats (RDF, XML, JSON e.t.c). Trace data containing sensor-actuator readings are important components but do not depict dependency relationship when used alone. Trace data is transformed to provenance to represent causality and dependencies relationships between entities contained in an IoT system. Provenance Ontology and sensor data can be further aligned for better representation of dependency relationships between sensor data.
 
-\par A single sensor might have the capability of collecting multiple trace data, $td$. For example, a sensor might be able to collect sensor readings of temperature, location, humidity. $td$ at time $t_1$ can be defined as $td = \{ x_1, y_1, z_1 \}$ where $x_1, y_1, z_1$ are distinct sensor readings contained in the sensor at time $t_1$. A combination of trace data at a particular point in time is considered an event. We define an event  for sensor $s_1$ as $e= \{td_1, ...td_n\} $ where $td_1$ is the first trace data collected by $s_1$  and $td_n$ is the last. \\ \\ $[sensor, actuator, device] \in \{prov:agent\}$  \\ $[datapoint] \in \{prov:entity\} $ \\
+\par A single sensor might have the capability of collecting multiple trace data, $td$. For example, a sensor might be able to collect sensor readings of temperature, location, humidity. $td$ at time $t_1$ can be defined as $td = \{ x_1, y_1, z_1 \}$ where $x_1, y_1, z_1$ are distinct sensor readings contained% at time $t_1$. A combination of trace data at a particular point in time is considered an event. We define an event  for sensor $s_1$ as $e= \{td_1, ...td_n\} $ where $td_1$ is the first trace data collected by $s_1$  and $td_n$ is the last.
+
+% \\ \\ $[sensor, device] \in \{prov:agent\}$  \\ $[event] \in \{prov:entity\} $ \\
 
 
 
@@ -734,7 +736,7 @@ Consider a humidity and temperature sensor $s_1$, connected to device $r_1$, a R
 
 
 
-Figure \ref{prov_sensor} further illustrates the concept of Prov-Sensor alignment using a graphical representation which contains a device connected to three sensors $s_1, s_2$, and $s_3$ with events  [$e_1, e_2,...,e_n$]. Data is generated by three identical temperature sensors, $s_1, s_2$ and $s_3$. Trace data generated from devices are aligned with Provenance Ontology. The graph depicts data dependency between $r_1$, the three sensors, the activity performed by the sensors (the sensors create data in this case) and the events.  Each event makes an edge with the preceding event. Edges between events are denoted with a dotted arrow . This represents time dependency between events. The  graph of all of the events is:
+Figure \ref{prov_sensor} further illustrates the concept of Prov-Sensor Mapping using a graphical representation which contains a device connected to three sensors $s_1, s_2$, and $s_3$ with events  [$e_1, e_2,...,e_n$]. Data is generated by three identical temperature sensors, $s_1, s_2$ and $s_3$. The graph depicts data dependency between $r_1$, the three sensors, the activity performed by the sensors (the sensors create data in this case) and the events.  Each event makes an edge with the preceding event. Edges between events are denoted with a dotted arrow . This represents time dependency between events. The  graph of all of the events is:
 
 % \\ For graph  G= (V, E):   \\ $V = \{ e_1, ...e_n \} \\  E = \{ (e_i,e_{i+1}): e_i, e_{i+1} \in V, e_1 \neq e_{i+1}\}  $ \\ 
 
@@ -746,19 +748,17 @@ Figure \ref{prov_sensor} further illustrates the concept of Prov-Sensor alignmen
 
 \includegraphics[width=3.8in]{prov_sensor1.PNG}
 \end{center}
-\caption{Prov-Sensor Model Alignment }
+\caption{Prov-Sensor Model Mapping }
 \label{prov_sensor}
 \end{figure}
 
 \SetKwProg{Fn}{Function}{}{}
 
 
-\subsection{Algorithm Description}
-
-In Algorithm \ref{Prov_sensor_alg}, $F$  represents the  file object containing tuples $x$. For each tuples contained in F, $s, d$ represents sensor and device information respectively and are generated as agents. $e$ is generated as events, $a$ is generated as an activity. p is a memory representation of the provenance document containing all  provenance types and their relations.
+In Algorithm \ref{Prov_sensor_alg}, $F$  represents a  file object containing tuples $x$. For each tuples contained in F, $s, d$ represents sensor and device information respectively and are defined as agents. $e$ is defined as an event, $a$ is defined as an activity. p is a memory representation of the provenance document containing all  provenance types and their relations.
 
 \begin{algorithm}[h!]
-\caption{Prov-Sensor Alignment}
+\caption{Prov-Sensor Mapping}
 \label{Prov_sensor_alg}
 \Fn{trace2Prov (F)}{
 
@@ -810,7 +810,7 @@ z $\leftarrow$ relateEntityToActivity()  \\
 
 
 \section{PAIoTS System Implementation}
-In this section, we outline  PAIoTS a trace-based provenance collection system for IoT devices. Figure \ref{architecture} displays the system architecture. Sensor and actuator readings in the form of input and output (I/O) events are recorded by the tracer component. This component intercepts I/O and produces trace information represented in Common Trace Format (CTF). 
+In this section, we outline  PAIoTS, a trace-based provenance collection system for IoT devices. Figure \ref{architecture} displays the system architecture. Sensor and actuator readings in the form of input and output (I/O) events are recorded by the tracer component. This component intercepts I/O and produces trace information represented in Common Trace Format (CTF). 
 
 %CTF encodes binary trace output information containing multiple streams of binary events such as I/O activity.
 
@@ -878,17 +878,17 @@ Muniswamy-Reddy
 et al. \cite{muniswamy_reddy} developed Provenance Aware Storage System (PASS), a provenance collection system that tracks  system-level provenance of the Linux file system. Provenance information
 is stored in the same location as the file system for easy accessibility, backup,
 restoration, and data management. Provenance information is collected and stored in
-the kernel space. PASS is composed of 3 major components: provenance collector, provenance storage, and provenance query. The collector keeps track of system level provenance. It intercepts system calls which are translated into provenance data and initially stored in memory. Provenance data is then transferred to a file system in an kernel database, BerkleyDB which maps key value pairs for provenance data for fast index look up. Our approach looks at not just system level provenance but also application level provenance. 
+the kernel space. PASS is composed of 3 major components: provenance collector, provenance storage, and provenance query. The collector keeps track of system level provenance. It intercepts system calls which are translated into provenance data and initially stored in memory. Provenance data is then transferred to a file system in an kernel database, BerkleyDB which maps key value pairs for provenance data for fast index look up. Our approach looks application level provenance for memory constrained embedded systems. 
 
 \par Bates et al. \cite{hi_fi}  developed, HiFi,a system level provenance collection framework for the Linux kernel using Linux Provenance Modules (LPM), which utilizes Linux Security Modules (LSM). LSM is a framework that was designed for providing custom access control inside the Linux kernel. HiFi contains three components: provenance collector, provenance log and provenance handler. The collector and log are contained in the kernel space while the handler is contained in the user space. The collector uses LSM to record provenance data and writes it to the provenance log. The handler reads the provenance record from the log. The log is a storage medium which transmits the provenance data to the user space. This approach to collecting provenance data differs from our work since we focus on memory constrained embedded systems which might not contain an operating system or a file system.
 
 % Additionally,  HiFi deals with collecting system level events which might incur additional overhead when compared to collecting application level provenance. HiFi is engineered to work solely on the Linux operating system. Embedded systems that do not run on Linux OS will not be able to incorporate HiFi. 
 
-\par RecProv \cite{rec_prov} is a provenance system which records user-level provenance, avoiding the overhead incurred by kernel level provenance recording. It does not require changes to the kernel like most provenance monitoring systems. It uses Mozilla rr to perform deterministic record and replay by monitoring system calls  and non deterministic input. The provenance information generated is converted into PROV-JSON, and stored in Neo4j, a graph database for visualization and storage of provenance graphs. 
+\par RecProv \cite{rec_prov} is a provenance system which records user-level provenance, avoiding the overhead incurred by kernel level provenance recording. It does not require changes to the kernel like most provenance monitoring systems. It uses Mozilla rr to perform deterministic record and replay by monitoring system calls  and non deterministic input. The provenance information generated is converted into PROV-JSON, and stored in Neo4j, a graph database for visualization and storage of provenance graphs. In PAIoT, we convert trace data to provenance and also use Neo4j for storage and visualization of the provenance data generated however, our PAIoT focuses on the relationship between entities in a device with limited computation and memory capabilities and also transformations of sensor data these devices.
 
 
 
-\par Spillance et al. \cite{story} developed a user space provenance collection system, Storybook that allows the use of application specific extensions such as database provenance, system level provenance, and web and email servers. Storybook captures provenance by intercepting system level events in the FUSE file system and storing in MySQL. StoryBook allows developers to implement provenance inspectors custom provenance models for specific applications which are often modified by different application (e.g web servers, databases). When an operation is performed on a data object, the appropriate provenance model is triggered and provenance data for that data object is captured. StoryBook stores provenance information such as open, close, read or write, application specific provenance, and causality relationship between entities contained in the provenance system. Provenance data is stored in key value pairs using Stasis and Berkely DB. 
+\par Spillance et al. \cite{story} developed a user space provenance collection system, Storybook that allows the use of application specific extensions such as database provenance, system level provenance, and web and email servers. Storybook captures provenance by intercepting system level events in the FUSE file system and storing in MySQL. StoryBook allows developers to implement provenance inspectors custom provenance models for specific applications which are often modified by different application (e.g web servers, databases). When an operation is performed on a data object, the appropriate provenance model is triggered and provenance data for that data object is captured. StoryBook stores provenance information such as open, close, read or write, application specific provenance, and causality relationship between entities contained in the provenance system. Provenance data is stored in key value pairs using Stasis and Berkely DB.  In our approach to provenance collection, we are particularly interested in the provenance of sensor readings in memory constrained embedded systems.
 
 
 %Collecting application level and kernel level events is similar to our approach of provenance collection, but 
@@ -899,6 +899,8 @@ provenance and data similarity as deciding factors to calculate trust. The value
 provenance signifies that the more similar a data value is, the higher the trust score.
 Also, the more the provenance of similar values differ, the higher their trust score. The trust score of a system is affected by the trust score of the sensor that forwards data to the system. Provenance is determined by the path data travels through the sensor network. This work differs from our approach since the authors focus on creating a trust score and do not emphasize
 how the provenance data is collected. 
+
+\par Compton et al.\cite{compton2014sensor} defines a model for the alignment of SSN, a semantic ontology for representing sensor observation data and PROV-O. This model contains details on how the sub-components of SSN can be represented as Provenance Ontology. The model is only suited only SSN and does not address other sensor semantic representations. Our work focuses on providing a general Sensor-Provenance alignment which is not tied to a specific semantic ontology.
 
 \section{Conclusion and Future Work}
 In this paper, we motivate the need for integrating provenance into the IoT system. 
