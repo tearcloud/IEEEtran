@@ -450,7 +450,7 @@ The Internet of Things (IoT) is transforming commercial and industrial informati
 \par Due to the heterogeneity of devices and the level of uncertainty in deployments devices in IoT, trust is a critical step to ensuring the security of IoT devices. This can be achieved through data Provenance. Data provenance is a comprehensive history of activities that occurred on an entity from its origin to its current state. Provenance ensures confidence in the accuracy of data in an IoT system. Provenance has been applied in domains such as scientific workflow for experiment reproducibility, information security as a form of access control and also for intrusion detection in mitigating malicious adversaries. For IoT devices (things) that produce lots of sensor-actuator data, a workflow representation of how sensor data is generated can depict dependency between sensor readings and information in the device. 
 
 \par In this paper, we propose PAIoTS, a provenance collection framework for IoT devices, in which provenance data is collected and modeled to represent dependencies between sensor-actuator readings and the entities in an IoT system. Most of the interconnected heterogeneous devices (things) are embedded systems which require a lightweight and efficient solution as compared to general purpose
-systems. This requirement is attributed to the constrained memory and computing power of such. We also propose a provenance sensor model mapping which provides a direct correlation of sensor readings to provenance data.
+systems. This requirement is attributed to the constrained memory and computing power of such. We also propose a provenance sensor Model which provides a direct correlation of sensor readings to provenance data.
 
 \par The rest of the paper is organized as follows. In section II, we discuss background information on IoT and data provenance, we also motivate the need to incorporate provenance with IoT. In section III, we discuss how provenance model and sensor data can be aligned. In section IV, we discuss implementation details for PAIoTS. In section V, we discuss related works. Finally, in section V, we conclude with future research directions.
 
@@ -569,7 +569,7 @@ Provenance of sensor readings in an IoT device should outline the dependency rel
 
 \subsubsection{Provenance Data Model (Prov-DM)}
 
-PROV-DM \cite{prov_dm} is a model that conforms to Provenance Ontology, a W3C standard used to depict dependencies between entities, activities and agents (digital or physical). PROV-DM creates a common model that allows for interchange of provenance information between heterogeneous devices. 
+PROV-DM \cite{prov_dm} is a model that conforms to Provenance Ontology (PROV-O), a W3C standard used to depict dependencies between entities, activities and agents (digital or physical). PROV-DM creates a common model that allows for interchange of provenance information between heterogeneous devices. 
 
 \par PROV-DM contains two major components: types and relations.  Types can be entities, activities, or agents. An entity is a physical or digital object. An activity represents some form of action that occurs over a time frame.  An agent takes ownership of an entity, or performs an activity. 
 
@@ -711,18 +711,18 @@ Figure \ref{prov_rep} illustrates the types contained in PROV-DM and their repre
 
 
 \section {Prov-Sensor Model Alignment}
-In this section, we introduce the Sensor-Provenance model mapping and explain how to use Provenance Ontology (PROV-O) to convert sensor and actuator readings to provenance.
+In this section, we introduce the Provenance-Sensor Model and explain how to use Provenance Ontology to convert sensor and actuator readings to provenance.
 
-\par Sensor data contains observation information such as temperature, location details which can be transformed to various standardized data interchange formats (RDF, XML, JSON e.t.c). Trace data containing sensor-actuator readings are important components but do not depict dependency relationship when used alone. Trace data is transformed to provenance to represent causality and dependencies relationships between entities contained in an IoT system. Provenance Ontology and sensor data can be further aligned for better representation of dependency relationships between sensor data.
+\par Sensor data contains observation information such as temperature, location details which can be transformed to various standardized data interchange formats (RDF, XML, JSON e.t.c). Trace data containing sensor readings are important components but do not depict dependency relationship when used alone. Trace data is transformed to provenance to represent causality and dependency relationships between entities contained in an IoT system. Provenance Ontology and sensor data can be further aligned for better representation of dependency relationships between sensor data.
 
-\par A single sensor might have the capability of collecting multiple trace data, $td$. For example, a sensor might be able to collect sensor readings of temperature, location, humidity. $td$ at time $t_1$ can be defined as $td = \{ x_1, y_1, z_1 \}$ where $x_1, y_1, z_1$ are distinct sensor readings contained% at time $t_1$. A combination of trace data at a particular point in time is considered an event. We define an event  for sensor $s_1$ as $e= \{td_1, ...td_n\} $ where $td_1$ is the first trace data collected by $s_1$  and $td_n$ is the last.
-
-% \\ \\ $[sensor, device] \in \{prov:agent\}$  \\ $[event] \in \{prov:entity\} $ \\
+\par A single sensor might have the capability of collecting multiple trace data, $td$. For example, a sensor might be able to collect sensor readings of temperature, location, humidity. A combination of trace data at a particular point in time is considered an event. We define an event  for sensor $s_1$ at time $t$ as $e= \{td_1, ...td_n\} $ where $td_1$ is the first trace data collected by $s_1$  and $td_n$ is the last which occurs at time $t$.
 
 
 
-\par Using the Provenance Ontology, in an IoT system containing multiple sensors, device and sensor information, we represent device information as agents (prov:agents), we represent the operation performed on sensor-actuator readings (read, create, update) as a provenance activity (prov:activity). Events are represented as entities (prov:entity). We represent sensor trace as a tuple  $ (t, e, a, s_1, r_1)$ where $t$ represents a timestamp, $e$ represents an event in which trace data is collected, $a$ represents the action performed on sensor readings, $s_1$ represents sensor specific information such as sensor name, sensor version and $r_1$ represents device information such as device name, device version, and time of last update.
 
+
+\par Using the Provenance Ontology, in an IoT system containing multiple sensors, device and sensor information, we represent device information as agents (prov:agents), we represent the operation performed on sensor-actuator readings (read, create, update) as a provenance activity (prov:activity). Events are represented as entities (prov:entity). 
+Raw sensor trace is defined as a tuple  $ (t, e, a, s_1, r_1)$ where $t$ represents a timestamp, $e$ represents an event in which trace data is collected, $a$ represents the operation performed on sensor readings, $s_1$ represents sensor specific information such as sensor name, sensor version and $r_1$ represents device information such as device name, device version, and time of last update. \\ \\ $[s_1, r_1] \in \{prov:agent\}$  \\ $[e] \in \{prov:entity\} $ \\ $[a] \in \{prov:entity\}$ \\
 
 
 
@@ -730,13 +730,9 @@ In this section, we introduce the Sensor-Provenance model mapping and explain ho
 
 \subsubsection{Example} 
 
-Consider a humidity and temperature sensor $s_1$, connected to device $r_1$, a Raspberry Pi. Event, $e$, can be defined as $e= \{temperature, humidity\}$ therefore the tuple representation of trace data for Raspberry Pi $r_1$ with sensor $s_1$ taken at time $t_1$ can also be defined as $(t, \{temperature, humidity\}, a,  s_1, r_1)$. Each tuple is mapped to the Provenance Ontology representation using the defined constructs in section IV. For each tuple,  $s_1$, and $r_1$ are represented as entities as (prov:entity), $a$ is represented as (prov:activity), and the $e$ is represented as (prov:entities).  Provenance is represented as a directed acyclic graph and the edge between two entities is considered a relation. Relations between the entities follows the Provenance Ontological convention which depicts transformation between entities. For example since $s_1$ is contained in device $r_1$, $r_1$ forms an edge with $s_1$ with the used relation. (e.g $r_1$ used $s_1$).
+Consider a humidity and temperature sensor $s_1$, connected to device $r_1$, a Raspberry Pi. Event, $e$, can be defined as $e= \{temperature, humidity\}$ therefore the tuple representation of trace data for Raspberry Pi $r_1$ with sensor $s_1$ taken at time $t_1$ can also be defined as $(t, \{temperature, humidity\}, a,  s_1, r_1)$. Each tuple is mapped to the Provenance Ontology representation using the defined constructs in section IV. For each tuple,  $s_1$, and $r_1$ is represented as (prov:entity), $a$ is represented as (prov:activity), and $e$ is represented as (prov:entity).  Provenance is represented as a directed acyclic graph and the edge between two entities is considered a relation. Relations between data objects follows the Provenance Ontological convention which depicts transformation between entities. For example since $s_1$ is contained in device $r_1$, $r_1$ forms an edge with $s_1$ with the used relation. (e.g $r_1$ used $s_1$).
 
-
-
-
-
-Figure \ref{prov_sensor} further illustrates the concept of Prov-Sensor Mapping using a graphical representation which contains a device connected to three sensors $s_1, s_2$, and $s_3$ with events  [$e_1, e_2,...,e_n$]. Data is generated by three identical temperature sensors, $s_1, s_2$ and $s_3$. The graph depicts data dependency between $r_1$, the three sensors, the activity performed by the sensors (the sensors create data in this case) and the events.  Each event makes an edge with the preceding event. Edges between events are denoted with a dotted arrow . This represents time dependency between events. The  graph of all of the events is:
+Figure \ref{prov_sensor} further illustrates the concept of Prov-Sensor Mapping using a graphical representation. The Figure depicts a device connected to three sensors $s_1, s_2$, and $s_3$ with events  [$e_1, e_2,...,e_n$]. Data is generated by three identical temperature sensors, $s_1, s_2$ and $s_3$. The graph represents data dependency between $r_1$, the three sensors, the activity performed by the sensors (the sensors generates data in this case) and the events.  Each event makes an edge with the preceding event. Edges between events are denoted with a dotted arrow . This represents time dependency between events and that each events occur at different time. The  graph of all of the events is:
 
 % \\ For graph  G= (V, E):   \\ $V = \{ e_1, ...e_n \} \\  E = \{ (e_i,e_{i+1}): e_i, e_{i+1} \in V, e_1 \neq e_{i+1}\}  $ \\ 
 
@@ -755,7 +751,7 @@ Figure \ref{prov_sensor} further illustrates the concept of Prov-Sensor Mapping 
 \SetKwProg{Fn}{Function}{}{}
 
 
-In Algorithm \ref{Prov_sensor_alg}, $F$  represents a  file object containing tuples $x$. For each tuples contained in F, $s, d$ represents sensor and device information respectively and are defined as agents. $e$ is defined as an event, $a$ is defined as an activity. p is a memory representation of the provenance document containing all  provenance types and their relations.
+In Algorithm \ref{Prov_sensor_alg}, $F$  represents a  list of tuples $x$. For each tuples contained in F, $s, d$ represents sensor and device information respectively and are defined as agents. $e$ is defined as an event, $a$ is defined as an activity. p is a memory representation of the provenance containing all  provenance types and their relations.
 
 \begin{algorithm}[h!]
 \caption{Prov-Sensor Mapping}
@@ -810,16 +806,16 @@ z $\leftarrow$ relateEntityToActivity()  \\
 
 
 \section{PAIoTS System Implementation}
-In this section, we outline  PAIoTS, a trace-based provenance collection system for IoT devices. Figure \ref{architecture} displays the system architecture. Sensor and actuator readings in the form of input and output (I/O) events are recorded by the tracer component. This component intercepts I/O and produces trace information represented in Common Trace Format (CTF). 
+In this section, we outline  PAIoTS, a trace-based provenance collection system for IoT devices. Figure \ref{architecture} displays the system architecture. Sensor readings in the form of input and output (I/O) events are recorded by the tracer component. This component intercepts I/O and produces trace information represented in Common Trace Format (CTF). 
 
 %CTF encodes binary trace output information containing multiple streams of binary events such as I/O activity.
 
-PAIoTS converts CTF trace data to provenance in the PROV-DM IoT Model, which is described in Section IV. CTF conversion to PROV-DM is done using babeltrace. This conversion can happen at any layer of the IoT stack. Babeltrace is a plugin framework which allows the conversion of CTF traces into other formats. Trace or provenance data is securely transmitted to a gateway and later transmitted and stored in a cloud backend. Our backend of choice is Neo4j, a graph database with support for efficient storage, query and visualization of provenance data. CTF contains a mandatory stream known as metadata. Metadata contains information about other streams. It allows to parse a stream without specifying a layout.
+PAIoTS converts CTF trace data to provenance in the PROV-DM IoT Model, which is described in Section IV. CTF conversion to PROV-DM is done using babeltrace. This conversion can happen at any layer of the IoT stack. Babeltrace is a plugin framework which allows the conversion of CTF traces into other formats. Trace or provenance data is securely transmitted to a gateway and later transmitted and stored in a cloud backend. Our backend of choice is Neo4j, a graph database with support for efficient storage, query and visualization of provenance data. CTF contains a mandatory stream known as metadata. Metadata contains information about other streams. It allows parsing a stream without specifying a layout.
 
 
 
 \subsubsection{Common Trace Format (CTF) }
-CTF encodes binary trace output information containing multiple streams of binary events such as I/O activity.  CTF is composed of streams of events. Each event can be broken into as streams. Streams allow for fast processing since they do not have to be stored in disk before  being sent over a network or processed in memory.
+CTF encodes binary trace output information containing multiple streams of binary events such as I/O activity.  CTF is composed of streams of events. Each event can be broken into streams. Streams allow for fast processing since they do not have to be stored in disk before being sent over a network or processed in memory.
 
 
 
@@ -834,7 +830,7 @@ CTF encodes binary trace output information containing multiple streams of binar
 \label{architecture}
 \end{figure}
 
-Our goal is to create a provenance collection system which records I/O operations on data for devices connected in IoT. For our implementation, several tools and hardware components are used in the development of our prototype:
+Our goal is to create a provenance collection system which records transformations of I/O data for devices connected in IoT. For our implementation, several tools and hardware components were used in the development of our prototype:
 
 \begin{itemize}
 \item Raspberry Pi is the microcontroller used to evaluate our approach. We chose Raspberry Pi because it is a representation of what can be found on an IoT gateway device. Raspberry Pi is a low cost, simple IoT demonstrator.
@@ -900,7 +896,7 @@ provenance signifies that the more similar a data value is, the higher the trust
 Also, the more the provenance of similar values differ, the higher their trust score. The trust score of a system is affected by the trust score of the sensor that forwards data to the system. Provenance is determined by the path data travels through the sensor network. This work differs from our approach since the authors focus on creating a trust score and do not emphasize
 how the provenance data is collected. 
 
-\par Compton et al.\cite{compton2014sensor} defines a model for the alignment of SSN, a semantic ontology for representing sensor observation data and PROV-O. This model contains details on how the sub-components of SSN can be represented as Provenance Ontology. The model is only suited only SSN and does not address other sensor semantic representations. Our work focuses on providing a general Sensor-Provenance alignment which is not tied to a specific semantic ontology.
+\par Compton et al.\cite{compton2014sensor} defines a model for the alignment of SSN, a semantic ontology for representing sensor observation data and PROV-O. This model contains details on how the sub-components of SSN can be represented as Provenance Ontology. The model is only suited only SSN and does not address other sensor semantic representations. Our work focuses on providing a general Provenance-Sensor alignment which is not tied to a specific semantic ontology.
 
 \section{Conclusion and Future Work}
 In this paper, we motivate the need for integrating provenance into the IoT system. 
