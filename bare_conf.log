@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  23 APR 2017 20:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 APR 2017 01:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -366,74 +366,46 @@ e
 File: iot_architecture.png Graphic file (type png)
 
 <use iot_architecture.png>
-Package pdftex.def Info: iot_architecture.png used on input line 499.
+Package pdftex.def Info: iot_architecture.png used on input line 491.
 (pdftex.def)             Requested size: 190.1597pt x 144.54pt.
  <smart_home.png, id=12, 598.3956pt x 394.1124pt>
 File: smart_home.png Graphic file (type png)
 
 <use smart_home.png>
-Package pdftex.def Info: smart_home.png used on input line 514.
+Package pdftex.def Info: smart_home.png used on input line 506.
 (pdftex.def)             Requested size: 274.32484pt x 180.67499pt.
 
-Overfull \hbox (22.32484pt too wide) in paragraph at lines 514--515
+Overfull \hbox (22.32484pt too wide) in paragraph at lines 506--507
  [] 
  []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [2 <./iot_architecture.png> <./smart_home.png>]
-<prov_dm_2.PNG, id=19, 648.9846pt x 366.168pt>
+<prov_dm_2.PNG, id=19, 634.5306pt x 428.802pt>
 File: prov_dm_2.PNG Graphic file (type png)
  <use prov_dm_2.PNG>
-Package pdftex.def Info: prov_dm_2.PNG used on input line 583.
-(pdftex.def)             Requested size: 216.81pt x 122.3276pt.
+Package pdftex.def Info: prov_dm_2.PNG used on input line 566.
+(pdftex.def)             Requested size: 216.81pt x 146.51701pt.
 
-Underfull \hbox (badness 4013) in paragraph at lines 724--726
-[]\OT1/ptm/m/n/10 Using the Prove-nance On-tol-ogy, in an IoT sys-tem
- []
+<prov_sensor_5.PNG, id=20, 790.152pt x 417.7206pt>
+File: prov_sensor_5.PNG Graphic file (type png)
+ <use prov_sensor_5.PNG>
+Package pdftex.def Info: prov_sensor_5.PNG used on input line 730.
+(pdftex.def)             Requested size: 274.6262pt x 145.18457pt.
 
-
-Underfull \hbox (badness 1721) in paragraph at lines 724--726
-\OT1/ptm/m/n/10 read-ings, $\OML/cmm/m/it/10 s[]$ \OT1/ptm/m/n/10 rep-re-sents 
-sen-sor spe-cific in-for-ma-tion such
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 724--726
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 724--726
-
- []
-
-[3 <./prov_dm_2.PNG>] <prov_sensor1.PNG, id=29, 771.8436pt x 416.757pt>
-File: prov_sensor1.PNG Graphic file (type png)
-
-<use prov_sensor1.PNG>
-Package pdftex.def Info: prov_sensor1.PNG used on input line 745.
-(pdftex.def)             Requested size: 274.6262pt x 148.28998pt.
-
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 745--746
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 730--731
  [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Underfull \vbox (badness 2020) has occurred while \output is active []
-
-
-<system_architecture.PNG, id=30, 603.2136pt x 272.217pt>
+[3 <./prov_dm_2.PNG>] <system_architecture.PNG, id=30, 603.2136pt x 272.217pt>
 File: system_architecture.PNG Graphic file (type png)
 
 <use system_architecture.PNG>
-Package pdftex.def Info: system_architecture.PNG used on input line 827.
+Package pdftex.def Info: system_architecture.PNG used on input line 809.
 (pdftex.def)             Requested size: 216.81pt x 97.8402pt.
- [4 <./prov_sensor1.PNG> <./system_architecture.PNG>] [5] (./bare_conf.bbl
+ [4 <./prov_sensor_5.PNG> <./system_architecture.PNG>] (./bare_conf.bbl
 Underfull \hbox (badness 5711) in paragraph at lines 31--35
 []\OT1/ptm/m/n/8 M. Stanislav, ``Hack-ing iot: A case study on baby mon-i-tor
  []
@@ -465,6 +437,7 @@ Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmri7t!
 Missing character: There is no € in font ptmri7t!
 Missing character: There is no ” in font ptmri7t!
+[5]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `en'. Using the pattern for
 ** the default language instead.
@@ -483,19 +456,21 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6] (./bare_conf.aux) )
+[6
+
+] (./bare_conf.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
  4221 strings out of 493014
- 65431 string characters out of 6133351
- 154107 words of memory out of 5000000
+ 65436 string characters out of 6133351
+ 151107 words of memory out of 5000000
  7712 multiletter control sequences out of 15000+600000
  38484 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,15n,26p,1122b,3315s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,15n,26p,1122b,3313s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
@@ -507,7 +482,7 @@ l/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on bare_conf.pdf (6 pages, 594888 bytes).
+Output written on bare_conf.pdf (6 pages, 600311 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream
