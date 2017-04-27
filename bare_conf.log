@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 APR 2017 01:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 APR 2017 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -399,7 +399,10 @@ Overfull \hbox (22.6262pt too wide) in paragraph at lines 730--731
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3 <./prov_dm_2.PNG>] <system_architecture.PNG, id=30, 603.2136pt x 272.217pt>
+
+Underfull \vbox (badness 5519) has occurred while \output is active []
+
+ [3 <./prov_dm_2.PNG>] <system_architecture.PNG, id=30, 603.2136pt x 272.217pt>
 File: system_architecture.PNG Graphic file (type png)
 
 <use system_architecture.PNG>
@@ -482,7 +485,7 @@ l/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on bare_conf.pdf (6 pages, 600311 bytes).
+Output written on bare_conf.pdf (6 pages, 600296 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream
