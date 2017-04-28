@@ -14,45 +14,45 @@ Database file #1: refrences.bib
 Warning--empty booktitle in compton2014sensor
 
 Done.
-You've used 17 entries,
+You've used 16 entries,
             4087 wiz_defined-function locations,
-            952 strings with 11440 characters,
-and the built_in function-call counts, 13350 in all, are:
-= -- 1086
-> -- 287
-< -- 98
-+ -- 150
-- -- 49
-* -- 701
-:= -- 2083
-add.period$ -- 41
-call.type$ -- 17
-change.case$ -- 24
-chr.to.int$ -- 231
-cite$ -- 18
-duplicate$ -- 935
-empty$ -- 1113
-format.name$ -- 62
-if$ -- 3073
+            944 strings with 11123 characters,
+and the built_in function-call counts, 12477 in all, are:
+= -- 1016
+> -- 269
+< -- 92
++ -- 141
+- -- 46
+* -- 654
+:= -- 1948
+add.period$ -- 38
+call.type$ -- 16
+change.case$ -- 23
+chr.to.int$ -- 216
+cite$ -- 17
+duplicate$ -- 873
+empty$ -- 1034
+format.name$ -- 58
+if$ -- 2869
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 176
-newline$ -- 94
-num.names$ -- 20
-pop$ -- 406
+int.to.str$ -- 16
+missing$ -- 164
+newline$ -- 89
+num.names$ -- 19
+pop$ -- 378
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1001
+skip$ -- 937
 stack$ -- 0
-substring$ -- 559
-swap$ -- 763
-text.length$ -- 21
+substring$ -- 524
+swap$ -- 715
+text.length$ -- 20
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 17
+type$ -- 16
 warning$ -- 1
-while$ -- 62
-width$ -- 19
-write$ -- 218
+while$ -- 57
+width$ -- 18
+write$ -- 205
 (There was 1 warning)
