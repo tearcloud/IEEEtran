@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  28 APR 2017 16:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  1 JUN 2017 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -366,16 +366,16 @@ e
 File: iot_architecture.png Graphic file (type png)
 
 <use iot_architecture.png>
-Package pdftex.def Info: iot_architecture.png used on input line 491.
+Package pdftex.def Info: iot_architecture.png used on input line 490.
 (pdftex.def)             Requested size: 190.1597pt x 144.54pt.
  <smart_home.png, id=12, 598.3956pt x 394.1124pt>
 File: smart_home.png Graphic file (type png)
 
 <use smart_home.png>
-Package pdftex.def Info: smart_home.png used on input line 506.
+Package pdftex.def Info: smart_home.png used on input line 505.
 (pdftex.def)             Requested size: 274.32484pt x 180.67499pt.
 
-Overfull \hbox (22.32484pt too wide) in paragraph at lines 506--507
+Overfull \hbox (22.32484pt too wide) in paragraph at lines 505--506
  [] 
  []
 
@@ -383,16 +383,16 @@ Overfull \hbox (22.32484pt too wide) in paragraph at lines 506--507
 <prov_dm_2.PNG, id=19, 634.5306pt x 428.802pt>
 File: prov_dm_2.PNG Graphic file (type png)
  <use prov_dm_2.PNG>
-Package pdftex.def Info: prov_dm_2.PNG used on input line 566.
+Package pdftex.def Info: prov_dm_2.PNG used on input line 565.
 (pdftex.def)             Requested size: 216.81pt x 146.51701pt.
 
 <prov_sensor_10.PNG, id=20, 873.5034pt x 494.3268pt>
 File: prov_sensor_10.PNG Graphic file (type png)
  <use prov_sensor_10.PNG>
-Package pdftex.def Info: prov_sensor_10.PNG used on input line 721.
+Package pdftex.def Info: prov_sensor_10.PNG used on input line 720.
 (pdftex.def)             Requested size: 274.6262pt x 155.41205pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 721--722
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 720--721
  [] 
  []
 
@@ -401,7 +401,7 @@ Overfull \hbox (22.6262pt too wide) in paragraph at lines 721--722
 File: system_architecture.PNG Graphic file (type png)
 
 <use system_architecture.PNG>
-Package pdftex.def Info: system_architecture.PNG used on input line 813.
+Package pdftex.def Info: system_architecture.PNG used on input line 812.
 (pdftex.def)             Requested size: 216.81pt x 97.8402pt.
 
 
@@ -471,7 +471,7 @@ Here is how much of TeX's memory you used:
  7711 multiletter control sequences out of 15000+600000
  38484 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,15n,26p,1122b,3313s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,15n,26p,1133b,3313s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
@@ -483,7 +483,7 @@ l/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on bare_conf.pdf (6 pages, 611212 bytes).
+Output written on bare_conf.pdf (6 pages, 611267 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream
